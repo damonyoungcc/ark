@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import Hello from './components/demo/Hello';
+import LikeButton from './components/demo/LikeButton';
 import './App.css';
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Hello message="hello world2" />
+        <LikeButton></LikeButton>
         <a
           className="App-link"
           href="https://reactjs.org"
