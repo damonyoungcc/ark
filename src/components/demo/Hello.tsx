@@ -5,7 +5,6 @@ interface IHelloProps {
 }
 
 const Hello: React.FC<IHelloProps> = (props) => {
-  console.log(props.children);
   return <h2>{props.message}</h2>;
 };
 

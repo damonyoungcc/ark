@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import Hello from './components/demo/Hello';
 import LikeButton from './components/demo/LikeButton';
+import MouseTracker from './components/demo/MouseTracker';
 import './App.css';
 
 function App() {
+  const [show, setShow] = useState(true);
   return (
     <div className="App">
       <header className="App-header">
@@ -13,7 +15,15 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <Hello message="hello world2" />
-        <LikeButton></LikeButton>
+        <LikeButton />
+        <button
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          Toggle Tracker
+        </button>
+        {show && <MouseTracker />}
         <a
           className="App-link"
           href="https://reactjs.org"
