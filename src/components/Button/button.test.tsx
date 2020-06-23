@@ -17,7 +17,7 @@ const disabledProps: ButtonProps = {
   onClick: jest.fn(),
 };
 
-describe('test Button Component', () => {
+describe('【Test Button Component】', () => {
   it('should render the correct default button', () => {
     const wrapper = render(<Button {...defalutProps}>Nice</Button>);
     const element = wrapper.getByText('Nice') as HTMLButtonElement;
