@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import classNames from 'classnames';
-
+import { MenuItemProps } from './menuItem';
 type MenuMode = 'horizontal' | 'vertical';
 
 type SelectCallback = (selectedIndex: number) => void;
@@ -25,6 +25,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState(defaultIndex);
   const classes = classNames('ark-menu', className, {
     'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   });
 
   const handleClick = (index: number) => {
@@ -39,9 +40,21 @@ const Menu: React.FC<MenuProps> = (props) => {
     onSelect: handleClick,
   };
 
+  const renderChildren = () => {
+    return React.Children.map(children, (child, index) => {
+      const childElement = child as React.FunctionComponentElement<MenuItemProps>;
+      const { displayName } = childElement.type;
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
+        return React.cloneElement(childElement, { index });
+      } else {
+        console.error('Warning: Menu has a child which is not a MenuItem Component');
+      }
+    });
+  };
+
   return (
-    <ul style={style} className={classes}>
-      <menuContext.Provider value={passedContext}>{children}</menuContext.Provider>
+    <ul style={style} className={classes} data-testid="test-menu">
+      <menuContext.Provider value={passedContext}>{renderChildren()}</menuContext.Provider>
     </ul>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import Button, { ButtonSize, ButtonType } from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
-
+import SubMenu from './components/Menu/subMenu';
 const App: React.FC = () => {
   return (
     <div>
@@ -28,19 +28,19 @@ const App: React.FC = () => {
       </Button>
       <div>---------</div>
       <Menu defaultIndex={0} onSelect={(index) => console.log(index)}>
-        <MenuItem index={0}>menu1</MenuItem>
-        <MenuItem index={1} disabled>
-          menu2
-        </MenuItem>
-        <MenuItem index={2}>menu3</MenuItem>
+        <MenuItem>menu1</MenuItem>
+        <MenuItem disabled>menu2</MenuItem>
+        <SubMenu title="Submenu">
+          <MenuItem>menu1</MenuItem>
+          <MenuItem disabled>menu2</MenuItem>
+        </SubMenu>
+        <MenuItem>menu3</MenuItem>
       </Menu>
       <div>---------</div>
       <Menu defaultIndex={0} onSelect={(index) => console.log(index)} mode="vertical">
-        <MenuItem index={0}>menu1</MenuItem>
-        <MenuItem index={1} disabled>
-          menu2
-        </MenuItem>
-        <MenuItem index={2}>menu3</MenuItem>
+        <MenuItem>menu1</MenuItem>
+        <MenuItem disabled>menu2</MenuItem>
+        <MenuItem>menu3</MenuItem>
       </Menu>
     </div>
   );
