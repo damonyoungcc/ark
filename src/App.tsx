@@ -40,6 +40,10 @@ const App: React.FC = () => {
       <Menu defaultIndex={0} onSelect={(index) => console.log(index)} mode="vertical">
         <MenuItem>menu1</MenuItem>
         <MenuItem disabled>menu2</MenuItem>
+        <SubMenu title="Submenu">
+          <MenuItem>menu1</MenuItem>
+          <MenuItem disabled>menu2</MenuItem>
+        </SubMenu>
         <MenuItem>menu3</MenuItem>
       </Menu>
     </div>
