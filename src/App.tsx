@@ -1,10 +1,13 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import Button, { ButtonSize, ButtonType } from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
+import Icon from './components/Icon/icon';
+library.add(fas);
+
 const App: React.FC = () => {
   return (
     <div>
@@ -54,7 +57,8 @@ const App: React.FC = () => {
         <MenuItem>menu3</MenuItem>
       </Menu>
       <div>---------</div>
-      <FontAwesomeIcon icon={faCoffee} size="10x" spin/>
+      <Icon icon="angle-down" theme="danger" size="10x" />
+      <Icon icon="coffee" theme="primary" size="10x" />
     </div>
   );
 };
