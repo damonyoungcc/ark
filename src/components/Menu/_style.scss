@@ -46,6 +46,11 @@
       &:hover {
         color: $menu-item-active-color !important;
       }
+      &.is-disabled {
+        color: $menu-item-disabled-color;
+        pointer-events: none;
+        cursor: default;
+      }
     }
   }
   .ark-submenu.menu-opened {

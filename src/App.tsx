@@ -27,22 +27,27 @@ const App: React.FC = () => {
         Link Button
       </Button>
       <div>---------</div>
-      <Menu defaultIndex={0} onSelect={(index) => console.log(index)}>
+      <Menu defaultIndex={'0'} onSelect={(index) => console.log(index)}>
         <MenuItem>menu1</MenuItem>
         <MenuItem disabled>menu2</MenuItem>
         <SubMenu title="Submenu">
-          <MenuItem>menu1</MenuItem>
-          <MenuItem disabled>menu2</MenuItem>
+          <MenuItem disabled>menu1</MenuItem>
+          <MenuItem>menu2</MenuItem>
         </SubMenu>
         <MenuItem>menu3</MenuItem>
       </Menu>
       <div>---------</div>
-      <Menu defaultIndex={0} onSelect={(index) => console.log(index)} mode="vertical">
+      <Menu
+        defaultIndex={'0'}
+        onSelect={(index) => console.log(index)}
+        mode="vertical"
+        defaultOpenSubMenus={['2']}
+      >
         <MenuItem>menu1</MenuItem>
-        <MenuItem disabled>menu2</MenuItem>
+        <MenuItem>menu2</MenuItem>
         <SubMenu title="Submenu">
-          <MenuItem>menu1</MenuItem>
-          <MenuItem disabled>menu2</MenuItem>
+          <MenuItem disabled>menu1</MenuItem>
+          <MenuItem>menu2</MenuItem>
         </SubMenu>
         <MenuItem>menu3</MenuItem>
       </Menu>
