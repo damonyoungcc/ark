@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import Button, { ButtonSize, ButtonType } from './components/Button/button';
@@ -6,9 +6,11 @@ import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 import Icon from './components/Icon/icon';
+import Transition from './components/Transition/transition';
 library.add(fas);
 
 const App: React.FC = () => {
+  const [show, setShow] = useState(true);
   return (
     <div>
       <Button disabled>按钮</Button>
@@ -65,6 +67,18 @@ const App: React.FC = () => {
       <Icon icon="coffee" theme="light" size="10x" />
       <Icon icon="coffee" theme="success" size="10x" />
       <Icon icon="angle-down" theme="warning" size="10x" />
+      <div>----------</div>
+      <Button onClick={() => setShow(!show)}>toggle</Button>
+      <Transition in={show} animation="zoom-in-top" timeout={300}>
+        <div>
+          <div>111</div>
+          <div>222</div>
+          <div>333</div>
+        </div>
+      </Transition>
+      <Transition in={show} animation="zoom-in-top" timeout={300} wrapper>
+        <Button btnType={ButtonType.Danger}>111</Button>
+      </Transition>
     </div>
   );
 };
