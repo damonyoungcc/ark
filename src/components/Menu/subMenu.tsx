@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { menuContext } from './menu';
 import { MenuItemProps } from './menuItem';
 import Icon from '../Icon/icon';
+import Transition from '../Transition/transition';
 
 export interface SubMenuProps {
   index?: string;
@@ -60,7 +61,11 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         console.error('Warning: SubMenu has a child which is not a MenuItem Component');
       }
     });
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+    return (
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
+    );
   };
 
   return (
