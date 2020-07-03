@@ -31,7 +31,27 @@
       display: flex;
       align-items: center;
     }
+    .arrow-icon {
+      margin-left: 3px;
+      transition: transform 0.25s ease-in-out;
+    }
+    &:hover {
+      .arrow-icon {
+        transform: rotate(180deg);
+      }
+    }
   }
+  .is-vertical {
+    .arrow-icon {
+      transform: rotate(0deg) !important;
+    }
+  }
+  .is-vertical.is-opened {
+    .arrow-icon {
+      transform: rotate(180deg) !important;
+    }
+  }
+
   .ark-submenu {
     display: none;
     list-style: none;
@@ -48,8 +68,11 @@
       }
       &.is-disabled {
         color: $menu-item-disabled-color;
-        pointer-events: none;
         cursor: default;
+      }
+      &.is-disabled:hover {
+        cursor: default !important;
+        color: $menu-item-disabled-color !important;
       }
     }
   }
@@ -65,7 +88,7 @@
     position: absolute;
     background: $white;
     z-index: 100;
-    top: calc(100% + 8px);
+    top: calc(100% + 3px);
     left: 0;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;

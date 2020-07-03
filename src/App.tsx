@@ -36,8 +36,8 @@ const App: React.FC = () => {
         <MenuItem>menu1</MenuItem>
         <MenuItem disabled>menu2</MenuItem>
         <SubMenu title="Submenu">
-          <MenuItem disabled>menu1</MenuItem>
-          <MenuItem>menu2</MenuItem>
+          <MenuItem disabled>submenu item1</MenuItem>
+          <MenuItem>submenu item2</MenuItem>
         </SubMenu>
         <MenuItem>menu3</MenuItem>
       </Menu>
@@ -49,16 +49,22 @@ const App: React.FC = () => {
         defaultOpenSubMenus={['2']}
       >
         <MenuItem>menu1</MenuItem>
-        <MenuItem>menu2</MenuItem>
+        <MenuItem disabled>menu2</MenuItem>
         <SubMenu title="Submenu">
-          <MenuItem disabled>menu1</MenuItem>
-          <MenuItem>menu2</MenuItem>
+          <MenuItem disabled>submenu item1</MenuItem>
+          <MenuItem>submenu item2</MenuItem>
         </SubMenu>
         <MenuItem>menu3</MenuItem>
       </Menu>
       <div>---------</div>
       <Icon icon="angle-down" theme="danger" size="10x" />
       <Icon icon="coffee" theme="primary" size="10x" />
+      <Icon icon="coffee" theme="secondary" size="10x" />
+      <Icon icon="angle-down" theme="dark" size="10x" />
+      <Icon icon="coffee" theme="info" size="10x" />
+      <Icon icon="coffee" theme="light" size="10x" />
+      <Icon icon="coffee" theme="success" size="10x" />
+      <Icon icon="angle-down" theme="warning" size="10x" />
     </div>
   );
 };

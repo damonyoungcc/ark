@@ -218,14 +218,14 @@ $btn-transition:              color .15s ease-in-out, background-color .15s ease
 $menu-border-width:            $border-width !default;
 $menu-border-color:            $border-color !default;
 $menu-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-$menu-transition:              color .15s ease-in-out, border-color .15s ease-in-out !default;
+$menu-transition:              color .45s ease-in-out, border-color .45s ease-in-out !default;
 
 // menu-item
 $menu-item-padding-y:          .5rem !default;
 $menu-item-padding-x:          1rem !default;
 $menu-item-active-color:       $primary !default;
 $menu-item-active-border-width: 2px !default;
-$menu-item-disabled-color:     $gray-600 !default;
+$menu-item-disabled-color:     $gray-500 !default;
 
 //sub-menu
 //submenu
