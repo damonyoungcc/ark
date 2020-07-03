@@ -59,14 +59,14 @@ const App: React.FC = () => {
         <MenuItem>menu3</MenuItem>
       </Menu>
       <div>---------</div>
-      <Icon icon="angle-down" theme="danger" size="10x" />
-      <Icon icon="coffee" theme="primary" size="10x" />
-      <Icon icon="coffee" theme="secondary" size="10x" />
-      <Icon icon="angle-down" theme="dark" size="10x" />
-      <Icon icon="coffee" theme="info" size="10x" />
-      <Icon icon="coffee" theme="light" size="10x" />
-      <Icon icon="coffee" theme="success" size="10x" />
-      <Icon icon="angle-down" theme="warning" size="10x" />
+      <Icon icon="angle-down" theme="danger" size="2x" />
+      <Icon icon="coffee" theme="primary" size="2x" />
+      <Icon icon="coffee" theme="secondary" size="2x" />
+      <Icon icon="angle-down" theme="dark" size="2x" />
+      <Icon icon="coffee" theme="info" size="2x" />
+      <Icon icon="coffee" theme="light" size="2x" />
+      <Icon icon="coffee" theme="success" size="2x" />
+      <Icon icon="angle-down" theme="warning" size="2x" />
       <div>----------</div>
       <Button onClick={() => setShow(!show)}>toggle</Button>
       <Transition in={show} animation="zoom-in-top" timeout={300}>
