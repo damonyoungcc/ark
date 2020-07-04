@@ -7,12 +7,13 @@ import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 import Icon from './components/Icon/icon';
 import Transition from './components/Transition/transition';
+import Input from './components/Input/input';
 library.add(fas);
 
 const App: React.FC = () => {
   const [show, setShow] = useState(true);
   return (
-    <div>
+    <div style={{ padding: '50px' }}>
       <Button disabled>按钮</Button>
       <Button onClick={() => console.log('111')} size="lg" autoFocus>
         按钮
@@ -74,6 +75,18 @@ const App: React.FC = () => {
       <Transition in={show} animation="zoom-in-top" timeout={300} wrapper>
         <Button btnType="danger">111</Button>
       </Transition>
+      <div>------------</div>
+      <Input placeholder="placeholder" icon="coffee" style={{ width: '300px' }} />
+      <Input disabled style={{ width: '300px' }} size="sm" />
+      <Input placeholder="placeholder" size="lg" icon="coffee" style={{ width: '300px' }} />
+      <Input
+        placeholder="placeholder"
+        size="lg"
+        icon="coffee"
+        style={{ width: '300px' }}
+        prepand="https://"
+      />
+      <Input placeholder="placeholder" size="lg" style={{ width: '300px' }} append=".com" />
     </div>
   );
 };
