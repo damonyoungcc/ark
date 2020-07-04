@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import Button, { ButtonSize, ButtonType } from './components/Button/button';
+import Button from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
@@ -14,23 +14,18 @@ const App: React.FC = () => {
   return (
     <div>
       <Button disabled>按钮</Button>
-      <Button onClick={() => console.log('111')} size={ButtonSize.Large} autoFocus>
+      <Button onClick={() => console.log('111')} size="lg" autoFocus>
         按钮
       </Button>
-      <Button size={ButtonSize.Small}>按钮</Button>
-      <Button btnType={ButtonType.Danger}>按钮</Button>
-      <Button className="test" btnType={ButtonType.Primary} size={ButtonSize.Large}>
+      <Button size="sm">按钮</Button>
+      <Button btnType="danger">按钮</Button>
+      <Button className="test" btnType="primary" size="lg">
         按钮
       </Button>
-      <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>
+      <Button btnType="link" href="http://www.baidu.com" disabled>
         Link Button
       </Button>
-      <Button
-        btnType={ButtonType.Link}
-        href="http://www.baidu.com"
-        size={ButtonSize.Small}
-        target="_blank"
-      >
+      <Button btnType="link" href="http://www.baidu.com" size="sm" target="_blank">
         Link Button
       </Button>
       <div>---------</div>
@@ -77,7 +72,7 @@ const App: React.FC = () => {
         </div>
       </Transition>
       <Transition in={show} animation="zoom-in-top" timeout={300} wrapper>
-        <Button btnType={ButtonType.Danger}>111</Button>
+        <Button btnType="danger">111</Button>
       </Transition>
     </div>
   );
