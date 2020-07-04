@@ -54,6 +54,7 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@types/storybook__addon-info": "^5.2.1",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "react-docgen-typescript-loader": "^3.7.2"
   }
 }

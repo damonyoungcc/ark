@@ -22,6 +22,6 @@ const buttonWidthType = () => (
   </>
 );
 storiesOf('Button', module)
-  .add('默认 Button', defaultButton)
+  .add('Button', defaultButton)
   .add('不同尺寸的Button', buttonWidthSize)
   .add('不同类型的Button', buttonWidthType);
