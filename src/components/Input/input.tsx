@@ -11,9 +11,9 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   size?: InputSize;
   /**Input框右边添加一个图标 */
   icon?: IconProp;
-  /**前缀 */
+  /**前缀，可传入一个字符串或者ReactElement */
   prepend?: String | ReactElement;
-  /**后缀 */
+  /**后缀，可传入一个字符串或者ReactElement */
   append?: String | ReactElement;
 }
 
