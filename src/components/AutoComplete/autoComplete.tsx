@@ -46,13 +46,17 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       const results = fetchSuggestions(debounceValue);
       if (results instanceof Promise) {
         setLoading(true);
-        results.then((data) => {
-          setLoading(false);
-          setSuggestions(data);
-          if (data.length > 0) {
-            setShowDropdown(true);
-          }
-        });
+        results
+          .then((data) => {
+            setLoading(false);
+            setSuggestions(data);
+            if (data.length > 0) {
+              setShowDropdown(true);
+            }
+          })
+          .finally(() => {
+            setLoading(false);
+          });
       } else {
         setSuggestions(results);
         setShowDropdown(true);
