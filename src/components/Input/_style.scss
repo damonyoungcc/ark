@@ -1,7 +1,7 @@
 .ark-input-wrapper {
   display: flex;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   position: relative;
   .icon-wrapper {
     position: absolute;
@@ -84,7 +84,12 @@
 .input-group.input-group-append > .ark-input-inner {
   @include border-right-radius(0);
 }
-
+.input-group > .ark-input-group-prepend {
+  border-right: none;
+}
+.input-group > .ark-input-group-append {
+  border-left: none;
+}
 .input-group > .ark-input-group-append,
 .input-group.input-group-prepend > .ark-input-inner {
   @include border-left-radius(0);

@@ -12,23 +12,23 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   /**Input框右边添加一个图标 */
   icon?: IconProp;
   /**前缀 */
-  prepand?: String | ReactElement;
+  prepend?: String | ReactElement;
   /**后缀 */
   append?: String | ReactElement;
 }
 
 export const Input: FC<InputProps> = (props) => {
-  const { children, className, size, icon, prepand, append, disabled, style, ...restProps } = props;
+  const { children, className, size, icon, prepend, append, disabled, style, ...restProps } = props;
   const classes = classNames('ark-input-wrapper', {
     [`input-size-${size}`]: size,
     'is-disabled': disabled,
-    'input-group': prepand || append,
+    'input-group': prepend || append,
     'input-group-append': append,
-    'input-group-prepand': prepand,
+    'input-group-prepend': prepend,
   });
   return (
     <div className={classes} style={style}>
-      {prepand && <div className="ark-input-group-prepend">{prepand}</div>}
+      {prepend && <div className="ark-input-group-prepend">{prepend}</div>}
       {icon && (
         <div className="icon-wrapper">
           <Icon icon={icon} title={`title-${icon}`} />

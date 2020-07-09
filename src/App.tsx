@@ -76,7 +76,7 @@ const App: React.FC = () => {
         <Button btnType="danger">111</Button>
       </Transition>
       <div>------------</div>
-      <Input placeholder="placeholder" icon="coffee" style={{ width: '300px' }} />
+      <Input placeholder="placeholder" icon="coffee" />
       <Input disabled style={{ width: '300px' }} size="sm" />
       <Input placeholder="placeholder" size="lg" icon="coffee" style={{ width: '300px' }} />
       <Input
@@ -84,7 +84,7 @@ const App: React.FC = () => {
         size="lg"
         icon="coffee"
         style={{ width: '300px' }}
-        prepand="https://"
+        prepend="https://"
       />
       <Input placeholder="placeholder" size="lg" style={{ width: '300px' }} append=".com" />
     </div>
