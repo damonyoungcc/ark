@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Input } from './input';
@@ -6,12 +6,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 const ControlledInput = () => {
-  const [value, setValue] = useState('111');
+  const [value, setValue] = useState();
   return (
     <Input
       value={value}
       defaultValue={value}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+      onChange={(e) => {
         setValue(e.target.value);
       }}
     />
@@ -45,7 +45,7 @@ const pandInput = () => (
   </>
 );
 
-storiesOf('Input component', module)
+storiesOf('Input', module)
   .add('Input', defaultInput)
   .add('被禁用的 Input', disabledInput)
   .add('带图标的 Input', iconInput)

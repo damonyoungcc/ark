@@ -1,4 +1,4 @@
-import React, { ReactElement, InputHTMLAttributes, FC } from 'react';
+import React, { ReactElement, InputHTMLAttributes, FC, ChangeEvent } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import classNames from 'classnames';
 import Icon from '../Icon/icon';
@@ -15,6 +15,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   prepend?: String | ReactElement;
   /**后缀，可传入一个字符串或者ReactElement */
   append?: String | ReactElement;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<InputProps> = (props) => {
@@ -26,6 +27,17 @@ export const Input: FC<InputProps> = (props) => {
     'input-group-append': append,
     'input-group-prepend': prepend,
   });
+  const fixControlledValue = (value: any) => {
+    if (typeof value === 'undefined' || null) {
+      return '';
+    } else {
+      return value;
+    }
+  };
+  if ('value' in props) {
+    delete restProps['defaultValue'];
+    restProps.value = fixControlledValue(props.value);
+  }
   return (
     <div className={classes} style={style}>
       {prepend && <div className="ark-input-group-prepend">{prepend}</div>}
