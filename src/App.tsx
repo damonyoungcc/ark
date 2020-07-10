@@ -8,10 +8,36 @@ import SubMenu from './components/Menu/subMenu';
 import Icon from './components/Icon/icon';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
+import { AutoComplete, DataSourceType } from './components/AutoComplete/autoComplete';
+import Upload from './components/upload/upload';
 library.add(fas);
+
+interface GithubUserProps {
+  login?: string;
+  html_url?: string;
+  avatar_url?: string;
+}
 
 const App: React.FC = () => {
   const [show, setShow] = useState(true);
+  const handleFetch = (query: string) => {
+    return fetch(`https://api.github.com/search/users?q=${query}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        const { items } = data || {};
+        console.log(data.items);
+        const formatItems = items.slice(0, 10).map((item: any) => ({ value: item.login, ...item }));
+        console.log(formatItems);
+        return formatItems;
+      });
+  };
+
+  const renderOption = (item: DataSourceType<GithubUserProps>) => {
+    return <div>Name: {item.value}</div>;
+  };
+
   return (
     <div style={{ padding: '50px' }}>
       <Button disabled>按钮</Button>
@@ -87,6 +113,15 @@ const App: React.FC = () => {
         prepend="https://"
       />
       <Input placeholder="placeholder" size="lg" style={{ width: '300px' }} append=".com" />
+      <div>------------</div>
+      <AutoComplete fetchSuggestions={handleFetch} renderOption={renderOption} />
+      <div>----------</div>
+      <Upload
+        action="https://jsonplaceholder.typicode.com/posts/"
+        onError={() => console.log('err')}
+        onProgress={() => console.log('onProgress')}
+        onSuccess={() => console.log('success')}
+      />
     </div>
   );
 };
