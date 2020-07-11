@@ -8,9 +8,37 @@ import SubMenu from './components/Menu/subMenu';
 import Icon from './components/Icon/icon';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
-import { AutoComplete, DataSourceType } from './components/AutoComplete/autoComplete';
-import Upload from './components/upload/upload';
+
+import {
+  AutoComplete,
+  DataSourceType,
+} from './components/AutoComplete/autoComplete';
+import Upload, { UploadFile } from './components/upload/upload';
 library.add(fas);
+
+const defauFileList: UploadFile[] = [
+  {
+    uid: '123',
+    size: 1234,
+    name: 'hello.jpg',
+    status: 'uploading',
+    percent: 30,
+  },
+  {
+    uid: '1234',
+    size: 1234,
+    name: 'hello4.jpg',
+    status: 'success',
+    percent: 30,
+  },
+  {
+    uid: '1235',
+    size: 1234,
+    name: 'hello.jpg',
+    status: 'error',
+    percent: 30,
+  },
+];
 
 interface GithubUserProps {
   login?: string;
@@ -28,7 +56,9 @@ const App: React.FC = () => {
       .then((data) => {
         const { items } = data || {};
         console.log(data.items);
-        const formatItems = items.slice(0, 10).map((item: any) => ({ value: item.login, ...item }));
+        const formatItems = items
+          .slice(0, 10)
+          .map((item: any) => ({ value: item.login, ...item }));
         console.log(formatItems);
         return formatItems;
       });
@@ -36,6 +66,14 @@ const App: React.FC = () => {
 
   const renderOption = (item: DataSourceType<GithubUserProps>) => {
     return <div>Name: {item.value}</div>;
+  };
+
+  const checkFileSize = (file: File) => {
+    if (Math.round(file.size / 1024) > 50) {
+      alert('file too big');
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -52,7 +90,12 @@ const App: React.FC = () => {
       <Button btnType="link" href="http://www.baidu.com" disabled>
         Link Button
       </Button>
-      <Button btnType="link" href="http://www.baidu.com" size="sm" target="_blank">
+      <Button
+        btnType="link"
+        href="http://www.baidu.com"
+        size="sm"
+        target="_blank"
+      >
         Link Button
       </Button>
       <div>---------</div>
@@ -104,7 +147,12 @@ const App: React.FC = () => {
       <div>------------</div>
       <Input placeholder="placeholder" icon="coffee" />
       <Input disabled style={{ width: '300px' }} size="sm" />
-      <Input placeholder="placeholder" size="lg" icon="coffee" style={{ width: '300px' }} />
+      <Input
+        placeholder="placeholder"
+        size="lg"
+        icon="coffee"
+        style={{ width: '300px' }}
+      />
       <Input
         placeholder="placeholder"
         size="lg"
@@ -112,15 +160,26 @@ const App: React.FC = () => {
         style={{ width: '300px' }}
         prepend="https://"
       />
-      <Input placeholder="placeholder" size="lg" style={{ width: '300px' }} append=".com" />
+      <Input
+        placeholder="placeholder"
+        size="lg"
+        style={{ width: '300px' }}
+        append=".com"
+      />
       <div>------------</div>
-      <AutoComplete fetchSuggestions={handleFetch} renderOption={renderOption} />
+      <AutoComplete
+        fetchSuggestions={handleFetch}
+        renderOption={renderOption}
+      />
       <div>----------</div>
       <Upload
         action="https://jsonplaceholder.typicode.com/posts/"
         onError={() => console.log('err')}
         onProgress={() => console.log('onProgress')}
         onSuccess={() => console.log('success')}
+        onChange={() => console.log('change')}
+        // beforeUpload={checkFileSize}
+        defaultFileList={defauFileList}
       />
     </div>
   );
