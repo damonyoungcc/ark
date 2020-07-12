@@ -21,13 +21,21 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject;
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
-  fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
+  fetchSuggestions: (
+    str: string,
+  ) => DataSourceType[] | Promise<DataSourceType[]>;
   onSelect?: (item: DataSourceType) => void;
   renderOption?: (item: DataSourceType) => ReactElement;
 }
 
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {
-  const { fetchSuggestions, onSelect, value, renderOption, ...restProps } = props;
+  const {
+    fetchSuggestions,
+    onSelect,
+    value,
+    renderOption,
+    ...restProps
+  } = props;
   const [suggestions, setSuggestions] = useState<DataSourceType[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [inputValue, setInputValue] = useState(value as string);
@@ -85,7 +93,8 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     triggerSearch.current = false;
   };
 
-  const renderTemplate = (item: DataSourceType) => (renderOption ? renderOption(item) : item.value);
+  const renderTemplate = (item: DataSourceType) =>
+    renderOption ? renderOption(item) : item.value;
 
   const generateDropdown = () => {
     return (
@@ -108,7 +117,11 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
               'is-active': index === highlightIndex,
             });
             return (
-              <li key={index} className={cnames} onClick={() => handleSelect(item)}>
+              <li
+                key={index}
+                className={cnames}
+                onClick={() => handleSelect(item)}
+              >
                 {renderTemplate(item)}
               </li>
             );
@@ -151,8 +164,15 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
   return (
     <div className="ark-auto-complete" ref={componentRef}>
-      <Input value={inputValue} {...restProps} onChange={handleChange} onKeyDown={handleKeyDown} />
+      <Input
+        value={inputValue}
+        {...restProps}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
       {generateDropdown()}
     </div>
   );
 };
+
+export default AutoComplete;
