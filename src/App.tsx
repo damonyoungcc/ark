@@ -8,6 +8,7 @@ import SubMenu from './components/Menu/subMenu';
 import Icon from './components/Icon/icon';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
+import Progress from './components/Progress/progress';
 
 import {
   AutoComplete,
@@ -68,13 +69,13 @@ const App: React.FC = () => {
     return <div>Name: {item.value}</div>;
   };
 
-  const checkFileSize = (file: File) => {
-    if (Math.round(file.size / 1024) > 50) {
-      alert('file too big');
-      return false;
-    }
-    return true;
-  };
+  // const checkFileSize = (file: File) => {
+  //   if (Math.round(file.size / 1024) > 50) {
+  //     alert('file too big');
+  //     return false;
+  //   }
+  //   return true;
+  // };
 
   return (
     <div style={{ padding: '50px' }}>
@@ -180,7 +181,14 @@ const App: React.FC = () => {
         onChange={() => console.log('change')}
         // beforeUpload={checkFileSize}
         defaultFileList={defauFileList}
+        data={{
+          key: 'value',
+        }}
+        headers={{ 'x-prower': 'ark' }}
+        drag
       />
+      <div>-----------</div>
+      <Progress percent={80} showText />
     </div>
   );
 };

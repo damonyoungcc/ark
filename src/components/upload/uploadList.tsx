@@ -30,7 +30,7 @@ export const UploadList: FC<UploadListProps> = (props) => {
                 <Icon icon="times-circle" theme="danger" />
               )}
             </span>
-            <span className="file-action">
+            <span className="file-actions">
               <Icon
                 icon="times"
                 onClick={() => {
