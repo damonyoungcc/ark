@@ -6,29 +6,24 @@
   "module": "build/index.js",
   "type": "build/index.d.ts",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yangdepp/ark"
+  },
   "dependencies": {
-    "@babel/core": "^7.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/classnames": "^2.2.10",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-transition-group": "^4.4.0",
     "axios": "^0.19.2",
-    "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-transition-group": "^4.4.1",
-    "rimraf": "^3.0.2",
-    "typescript": "~3.7.2"
+    "react-transition-group": "^4.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,7 +33,8 @@
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
-    "storybook": "start-storybook -p 9009 -s public"
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "rimraf ./storybook-static && build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -63,6 +59,20 @@
     "@storybook/react": "^5.2.8",
     "@types/storybook__addon-info": "^5.2.1",
     "node-sass": "^4.14.1",
-    "react-docgen-typescript-loader": "^3.7.2"
+    "react-docgen-typescript-loader": "^3.7.2",
+    "rimraf": "^3.0.2",
+    "typescript": "~3.7.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-transition-group": "^4.4.0",
+    "react-scripts": "3.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
