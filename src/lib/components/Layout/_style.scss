@@ -1,4 +1,4 @@
-.golu-layout {
+.ark-layout {
   display: flex;
   flex-direction: column;
   &-content {
@@ -10,7 +10,7 @@
   }
   &-hasSider {
     flex-direction: row;
-    & > .golu-layout {
+    & > .ark-layout {
       flex-direction: column;
     }
   }

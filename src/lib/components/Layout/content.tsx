@@ -1,7 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
+import classNames from 'classnames';
 
-const Content: FC<HTMLDivElement> = (props) => {
-  return <div className="ark-layout-content">{props.children}</div>;
+const Content: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
+  const { className, ...restprops } = props;
+  const classes = classNames('ark-layout-content', className);
+  return (
+    <div className={classes} {...restprops}>
+      {props.children}
+    </div>
+  );
 };
 
 export default Content;

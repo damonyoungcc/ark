@@ -1,0 +1,23 @@
+.layout-example-layout {
+  margin: 0 auto;
+  width: 60%;
+  color: #fff;
+  text-align: center;
+  .layout-example-header,
+  .layout-example-footer {
+    text-align: center;
+    height: 64px;
+    line-height: 64px;
+    background-color: #7dbcea;
+  }
+  .layout-example-content {
+    height: 120px;
+    line-height: 120px;
+    background-color: #288ee4;
+  }
+  .layout-example-sider {
+    background-color: #3ba0e9;
+    width: 20%;
+    line-height: 120px;
+  }
+}
