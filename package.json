@@ -1,10 +1,12 @@
 {
   "name": "ark",
   "version": "0.1.0",
+  "description": "React components library",
+  "author": "yangdepp",
   "private": false,
-  "main": "build/index.js",
-  "module": "build/index.js",
-  "type": "build/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "dist/index.d.ts",
   "license": "MIT",
   "files": [
     "dist"
@@ -27,14 +29,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "clean": "rimraf ./build",
-    "build": "yarn clean && yarn build-ts && yarn build-css",
+    "clean-lib": "rimraf ./dist",
+    "build-lib": "yarn clean-lib && yarn build-ts && yarn build-css",
+    "build-static": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
-    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "rimraf ./storybook-static && build-storybook -s public"
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,14 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-info": "^5.2.8",
-    "@storybook/addon-links": "^5.2.8",
-    "@storybook/addons": "^5.2.8",
-    "@storybook/react": "^5.2.8",
-    "@types/storybook__addon-info": "^5.2.1",
     "node-sass": "^4.14.1",
-    "react-docgen-typescript-loader": "^3.7.2",
     "rimraf": "^3.0.2",
     "typescript": "~3.7.2",
     "@testing-library/jest-dom": "^4.2.4",
