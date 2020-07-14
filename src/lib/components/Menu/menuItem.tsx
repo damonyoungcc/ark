@@ -13,7 +13,15 @@ export interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps & HTMLAttributes<HTMLElement>> = (
   props,
 ) => {
-  const { className, disabled, style, index, children, onClick } = props;
+  const {
+    className,
+    disabled,
+    style,
+    index,
+    children,
+    onClick,
+    ...restprops
+  } = props;
   const context = useContext(menuContext);
   const classes = classNames('ark-menu-item', className, {
     'is-disabled': disabled,
@@ -32,7 +40,7 @@ const MenuItem: React.FC<MenuItemProps & HTMLAttributes<HTMLElement>> = (
   const clickEvents = { onClick: handleClick };
 
   return (
-    <li style={style} className={classes} {...clickEvents}>
+    <li style={style} className={classes} {...clickEvents} {...restprops}>
       {children}
     </li>
   );

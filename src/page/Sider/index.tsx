@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import { Menu } from '../../lib';
 import { useHistory } from 'react-router-dom';
 import './style.scss';
@@ -8,13 +8,14 @@ const { SubMenu } = Menu;
 const LayoutComponent: FC = () => {
   const history = useHistory();
 
-  const handleSelct = (e: MouseEvent, item: any) => {
-    console.log(item);
-    history.push(item.path);
+  const handleSelct = (item: any) => {
+    return () => {
+      history.push(item.path);
+    };
   };
   return (
     <Menu mode="vertical">
-      {menusList.map((item, index) =>
+      {menusList.map((item) =>
         item.children ? (
           <SubMenu key={item.path} title={item.title}>
             {item.children.map((element: any) => (
@@ -24,10 +25,7 @@ const LayoutComponent: FC = () => {
             ))}
           </SubMenu>
         ) : (
-          <Menu.Item
-            key={item.path}
-            onClick={(e: MouseEvent<HTMLElement>) => handleSelct(e, item)}
-          >
+          <Menu.Item key={item.path} onClick={handleSelct(item)}>
             <span>{item.title}</span>
           </Menu.Item>
         ),
