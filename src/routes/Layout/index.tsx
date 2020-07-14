@@ -6,7 +6,7 @@ const LayoutExample = lazy(() =>
 const routes = [
   {
     path: '/layout',
-    title: '按钮',
+    title: '布局',
     component: LayoutExample,
   },
 ];
