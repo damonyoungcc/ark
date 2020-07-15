@@ -1,9 +1,71 @@
 .header-content {
+  height: 64px;
   display: flex;
   align-items: center;
+  .header-logo {
+    display: flex;
+    align-items: center;
+    width: 270px;
+    .logo-image {
+      height: 40px;
+      margin-left: 40px;
+    }
+    > div {
+      font-size: 18px;
+      margin-left: 20px;
+    }
+  }
+  .header-search {
+    border-left: 1px solid #dee2e6;
+    .search-icon {
+      color: #c1c1c1;
+      margin-left: 15px;
+      cursor: pointer;
+      &:hover {
+        color: #a3b1bf;
+      }
+    }
+    .search-input {
+      border: none;
+      padding-left: 30px;
+      color: #000000a6;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
   .header-nav {
+    position: fixed;
+    min-width: 600px;
+    height: 64px;
+    margin: 0;
+    right: 40px;
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    li {
+      height: 64px;
+      line-height: 64px;
+      cursor: pointer;
+    }
+    .li-item {
+      transition: all .3s ease-in-out;
+      padding: 0 20px;
+      border-top: 2px solid transparent;
+      &.active {
+        border-top: 2px solid #1890ff;
+        color: #1890ff;
+      }
+      &:hover {
+        color: #1890ff;
+        border-top: 2px solid #1890ff;
+      }
+    }
+    .li-item-repo {
+      margin: 0 3px 0 10px;
+    }
   }
 }

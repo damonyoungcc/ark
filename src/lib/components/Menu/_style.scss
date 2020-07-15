@@ -5,7 +5,8 @@
   list-style: none;
   border-bottom: $menu-border-width solid $menu-border-color;
   > .ark-menu-item {
-    padding: $menu-item-padding-y + 0.3 0;
+    color: $gray-600;
+    padding: $menu-item-padding-y + 0.1 0;
     cursor: pointer;
     transition: $menu-transition;
     &:hover,
@@ -20,7 +21,7 @@
     &.is-active,
     &:hover {
       color: $menu-item-active-color;
-      border-bottom: $menu-item-active-border-width solid
+      border-bottom: $horizontal-menu-item-active-border-width solid
         $menu-item-active-color;
     }
   }
@@ -68,7 +69,7 @@
       }
       &.is-active {
         background-color: $menu-item-active-background-color;
-        border-right: $menu-item-active-border-width solid
+        border-right: $vertical-menu-item-active-border-width solid
           $menu-item-active-color;
       }
       &.is-disabled {
@@ -88,7 +89,7 @@
 .menu-horizontal {
   > .ark-menu-item {
     padding: $menu-item-padding-y $menu-item-padding-x;
-    border-bottom: $menu-item-active-border-width solid transparent;
+    border-bottom: $horizontal-menu-item-active-border-width solid transparent;
   }
   .ark-submenu {
     position: absolute;
@@ -107,7 +108,7 @@
   > .ark-menu-item {
     margin: 4px 0 5px;
     &.is-active {
-      border-right: $menu-item-active-border-width solid $menu-item-active-color;
+      border-right: $vertical-menu-item-active-border-width solid $menu-item-active-color;
       border-bottom: 0px;
       background-color: $menu-item-active-background-color;
     }
