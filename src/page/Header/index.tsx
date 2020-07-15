@@ -77,6 +77,7 @@ const App: FC = () => {
             src={GithubImage}
             style={{ width: '20px', marginRight: '5px' }}
           />
+          {/* <img alt="GitHub stars" src="https://img.shields.io/github/stars/yangdepp/ark?style=social"></img> */}
           <img
             alt="GitHub package.json version"
             src="https://img.shields.io/github/package-json/v/yangdepp/ark?style=social"
