@@ -6,7 +6,7 @@ const InputExample = lazy(() =>
 const routes = [
   {
     path: '/input',
-    title: '输入框',
+    title: 'Input 输入框',
     component: InputExample,
   },
 ];

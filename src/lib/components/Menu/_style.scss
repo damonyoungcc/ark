@@ -1,13 +1,11 @@
 .ark-menu {
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
   padding-left: 0;
-  margin-bottom: 30px;
   list-style: none;
   border-bottom: $menu-border-width solid $menu-border-color;
-  box-shadow: $menu-box-shadow;
   > .ark-menu-item {
-    padding: $menu-item-padding-y $menu-item-padding-x;
+    padding: $menu-item-padding-y + 0.3 0;
     cursor: pointer;
     transition: $menu-transition;
     &:hover,
@@ -22,7 +20,8 @@
     &.is-active,
     &:hover {
       color: $menu-item-active-color;
-      border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+      border-bottom: $menu-item-active-border-width solid
+        $menu-item-active-color;
     }
   }
   .submenu-item {
@@ -30,6 +29,8 @@
     .submenu-title {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: $menu-item-padding-y 0;
     }
     .arrow-icon {
       margin-left: 3px;
@@ -53,7 +54,6 @@
   }
 
   .ark-submenu {
-    // display: none;
     list-style: none;
     padding-left: 0;
     white-space: nowrap;
@@ -65,6 +65,11 @@
       &.is-active,
       &:hover {
         color: $menu-item-active-color !important;
+      }
+      &.is-active {
+        background-color: $menu-item-active-background-color;
+        border-right: $menu-item-active-border-width solid
+          $menu-item-active-color;
       }
       &.is-disabled {
         color: $menu-item-disabled-color;
@@ -82,6 +87,7 @@
 }
 .menu-horizontal {
   > .ark-menu-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
     border-bottom: $menu-item-active-border-width solid transparent;
   }
   .ark-submenu {
@@ -97,14 +103,19 @@
 .menu-vertical {
   flex-direction: column;
   border-bottom: 0px;
-  margin: 10px 20px;
   border-right: $menu-border-width solid $menu-border-color;
   > .ark-menu-item {
-    border-left: $menu-item-active-border-width solid transparent;
-    &.is-active,
+    margin: 4px 0 5px;
+    &.is-active {
+      border-right: $menu-item-active-border-width solid $menu-item-active-color;
+      border-bottom: 0px;
+      background-color: $menu-item-active-background-color;
+    }
     &:hover {
       border-bottom: 0px;
-      border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
+  }
+  > .submenu-item {
+    background-color: transparent !important;
   }
 }

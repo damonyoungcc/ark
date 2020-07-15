@@ -3,31 +3,43 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Routes from '../routes/index.jsx';
 import { flatRoutes } from '../routes/routes_helper';
 import SiderChildren from './Sider';
+import HeaderChildren from './Header';
 import { Layout } from '../lib';
-const { Sider, Content } = Layout;
+import './App.scss';
+const { Sider, Content, Header, Footer } = Layout;
 
 const App: React.FC = () => {
   return (
     <Router>
       <Layout>
-        <Sider>
-          <SiderChildren />
-        </Sider>
+        <Header className="header">
+          <HeaderChildren />
+        </Header>
         <Layout>
+          <Sider className="sider">
+            <SiderChildren />
+          </Sider>
           <Content className="content">
-            <Suspense fallback={<div className="loading">loading...</div>}>
-              <Switch>
-                {flatRoutes(Routes).length &&
-                  flatRoutes(Routes).map((item) => (
-                    <Route
-                      path={item.path}
-                      exact
-                      component={item.component}
-                      key={item.path}
-                    />
-                  ))}
-              </Switch>
-            </Suspense>
+            <Layout>
+              <Header>
+                <Suspense fallback={<div className="loading">loading...</div>}>
+                  <Switch>
+                    {flatRoutes(Routes).length &&
+                      flatRoutes(Routes).map((item) => (
+                        <Route
+                          path={item.path}
+                          exact
+                          component={item.component}
+                          key={item.path}
+                        />
+                      ))}
+                  </Switch>
+                </Suspense>
+              </Header>
+              <Footer>
+                Footer
+              </Footer>
+            </Layout>
           </Content>
         </Layout>
       </Layout>

@@ -6,7 +6,7 @@ const ButtonExample = lazy(() =>
 const routes = [
   {
     path: '/button',
-    title: '按钮',
+    title: 'Button 按钮',
     component: ButtonExample,
   },
 ];

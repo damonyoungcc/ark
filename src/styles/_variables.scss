@@ -10,7 +10,7 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:    #0d6efd !default;
+$blue:    #1890ff !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #d63384 !default;
@@ -20,6 +20,7 @@ $yellow:  #fadb14 !default;
 $green:   #52c41a !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
+$skyblue: #e6f7ff !default;
 
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
@@ -224,6 +225,7 @@ $menu-transition:              color .45s ease-in-out, border-color .45s ease-in
 $menu-item-padding-y:          .5rem !default;
 $menu-item-padding-x:          1rem !default;
 $menu-item-active-color:       $primary !default;
+$menu-item-active-background-color: $skyblue !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color:     $gray-500 !default;
 

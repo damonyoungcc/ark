@@ -10,6 +10,7 @@ const LayoutComponent: FC = () => {
 
   const handleSelct = (item: any) => {
     return () => {
+      console.log(item)
       history.push(item.path);
     };
   };
@@ -17,16 +18,19 @@ const LayoutComponent: FC = () => {
     <Menu mode="vertical">
       {menusList.map((item) =>
         item.children ? (
-          <SubMenu key={item.path} title={item.title}>
+          <SubMenu
+            key={item.path}
+            title={<span className="menu-item-title">{item.title}</span>}
+          >
             {item.children.map((element: any) => (
-              <Menu.Item key={element.path}>
-                <span>{element.title}</span>
+              <Menu.Item key={element.path} onClick={handleSelct(element)}>
+                <span className="submenu-menu-item-title">{element.title}</span>
               </Menu.Item>
             ))}
           </SubMenu>
         ) : (
           <Menu.Item key={item.path} onClick={handleSelct(item)}>
-            <span>{item.title}</span>
+            <span className="menu-item-title">{item.title}</span>
           </Menu.Item>
         ),
       )}
