@@ -10,6 +10,8 @@
 
 一套个人级 React UI 组件库。
 
+</div>
+
 [English](./README-en.md) | 简体中文
 
 ## ✨ 特性
