@@ -24,41 +24,43 @@ const App: FC = () => {
   };
   return (
     <div className="header-content">
-      <div className="header-logo">
-        <img src={ArkImage} alt="" className="logo-image" />
-        <div>Ark Design</div>
+      <div className="header-left-wrapper">
+        <div className="header-logo">
+          <img src={ArkImage} alt="" className="logo-image" />
+          <div>Ark Design</div>
+        </div>
+        <div className="header-search" ref={componentRef}>
+          <Transition
+            in={!showInput}
+            animation="zoom-in-center-right"
+            timeout={0}
+          >
+            <Icon
+              icon="search"
+              className="search-icon"
+              onClick={() => setShowInput(!showInput)}
+            />
+          </Transition>
+          <Transition
+            in={showInput}
+            animation="zoom-in-center-left"
+            timeout={300}
+          >
+            <input
+              autoFocus={showInput}
+              type="text"
+              placeholder="在ark源码中搜索"
+              className="search-input"
+              onKeyDown={searchSourceCode}
+              value={inputValue}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setInputValue(e.target.value)
+              }
+            />
+          </Transition>
+        </div>
       </div>
-      <div className="header-search" ref={componentRef}>
-        <Transition
-          in={!showInput}
-          animation="zoom-in-center-right"
-          timeout={0}
-        >
-          <Icon
-            icon="search"
-            className="search-icon"
-            onClick={() => setShowInput(!showInput)}
-          />
-        </Transition>
-        <Transition
-          in={showInput}
-          animation="zoom-in-center-left"
-          timeout={300}
-        >
-          <input
-            autoFocus={showInput}
-            type="text"
-            placeholder="在ark源码中搜索"
-            className="search-input"
-            onKeyDown={searchSourceCode}
-            value={inputValue}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setInputValue(e.target.value)
-            }
-          />
-        </Transition>
-      </div>
-      <ul className="header-nav">
+      <ul className="header-nav header-left-wrapper">
         {liItems.map((item, index) => (
           <li
             key={item}
