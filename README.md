@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://yangdepp.github.io/ark/build/index.html">
-    <img width="200" src="./src/assets/ark.svg">
+    <img width="200" src="https://yangdepp.github.io/ark/build/static/media/ark.3d5a7f33.svg">
   </a>
 </p>
 
