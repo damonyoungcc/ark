@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import Menu, { MenuProps } from './menu';
 import SubMenu, { SubMenuProps } from './subMenu';
 import MenuItem, { MenuItemProps } from './menuItem';
 
 export type IMenuComponent = FC<MenuProps> & {
-  Item: FC<MenuItemProps>;
+  Item: FC<MenuItemProps & HTMLAttributes<HTMLElement>>;
   SubMenu: FC<SubMenuProps>;
 };
 

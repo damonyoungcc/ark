@@ -1,4 +1,4 @@
-import React, { useContext, useState, FunctionComponentElement } from 'react';
+import React, { useContext, useState, FunctionComponentElement, ReactElement } from 'react';
 import classNames from 'classnames';
 import { menuContext } from './menu';
 import { MenuItemProps } from './menuItem';
@@ -7,7 +7,7 @@ import Transition from '../Transition/transition';
 
 export interface SubMenuProps {
   index?: string;
-  title: string;
+  title: string | ReactElement;
   className?: string;
 }
 

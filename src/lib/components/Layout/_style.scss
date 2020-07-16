@@ -1,0 +1,17 @@
+.ark-layout {
+  display: flex;
+  flex-direction: column;
+  &-content {
+    flex-grow: 1;
+  }
+  & > & {
+    flex-direction: row;
+    flex-grow: 1 ;
+  }
+  &-hasSider {
+    flex-direction: row;
+    & > .ark-layout {
+      flex-direction: column;
+    }
+  }
+}

@@ -2,3 +2,5 @@
 @include zoom-animation('left', scale(0.45, 0.45), scale(1, 1), top left);
 @include zoom-animation('right', scale(0.45, 0.45), scale(1, 1), top right);
 @include zoom-animation('bottom', scaleY(0), scaleY(1), center bottom);
+@include zoom-animation('center-left', scaleY(0.5), scaleY(1), left right);
+@include zoom-animation('center-right', scaleY(0.5), scaleY(1), right left);
