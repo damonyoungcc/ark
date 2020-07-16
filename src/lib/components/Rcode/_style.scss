@@ -1,0 +1,68 @@
+.ark-rcode-input {
+  position: absolute;
+  top: -100%;
+  left: 100%;
+  opacity: 0;
+}
+.ark-rcode-label-wrapper {
+  display: flex;
+  align-items: center;
+  .ark-rcode-label {
+    position: relative;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #2e2f33;
+    border: 1px solid #d8deef;
+    cursor: text;
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      height: 1px;
+      transform: scaleY(0.5);
+      transform-origin: 0 100%;
+    }
+    &-animate {
+      border-color: $primary;
+    }
+    &.ark-rcode-label-animate::before {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      width: 1px;
+      height: 40%;
+      content: '';
+      background-color: #2e2f33;
+      animation-name: coruscate;
+      animation-duration: .9s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+  }
+}
+
+@keyframes coruscate {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

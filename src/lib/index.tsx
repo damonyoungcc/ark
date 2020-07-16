@@ -11,4 +11,5 @@ export { default as Progress } from '../lib/components/Progress';
 export { default as Transition } from '../lib/components/Transition';
 export { default as Upload } from '../lib/components/Upload';
 export { default as Layout } from '../lib/components/Layout';
+export { default as Rcode } from '../lib/components/Rcode';
 export { default as useClickOutside } from '../lib/hooks/useClickOutside';

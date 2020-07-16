@@ -37,7 +37,7 @@ const App: React.FC = () => {
                 </Suspense>
               </Header>
               <Footer>
-                Footer
+                {/* Footer */}
               </Footer>
             </Layout>
           </Content>
