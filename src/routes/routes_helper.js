@@ -27,4 +27,17 @@ const flatRoutes = (menus = []) => {
   return result;
 };
 
-export { autoAddPathToChildren, flatRoutes };
+const redirectDefaultRoute = (routes = []) => {
+  return [].concat(
+    [
+      {
+        path: '/',
+        title: routes[0].title,
+        component: routes[0].component,
+      },
+    ],
+    routes,
+  );
+};
+
+export { autoAddPathToChildren, flatRoutes, redirectDefaultRoute };

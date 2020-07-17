@@ -10,7 +10,7 @@ const App: FC = () => {
     <div>
       <Rcode total={6} onFinish={onFinish} autoFocus size="small" id="small"></Rcode>
       <Rcode total={6} onFinish={onFinish} autoFocus></Rcode>
-      <Rcode total={6} onFinish={onFinish} autoFocus size="large"></Rcode>
+      <Rcode total={6} onFinish={onFinish} autoFocus size="large" sensitive></Rcode>
     </div>
   );
 };
