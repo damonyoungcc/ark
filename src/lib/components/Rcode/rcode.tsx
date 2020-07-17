@@ -6,7 +6,7 @@ import React, {
   KeyboardEvent,
 } from 'react';
 import classNames from 'classnames';
-
+export type RcodeSize = 'large' | 'middle' | 'small';
 export interface RcodeProps
   extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
   total?: number;
@@ -14,16 +14,29 @@ export interface RcodeProps
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   sensitive?: boolean;
   regex?: RegExp;
+  size?: RcodeSize;
+  id?: string;
 }
 
 const App: FC<RcodeProps> = (props) => {
-  const { total, onFinish, onChange, sensitive, regex, ...restProps } = props;
+  const {
+    total = 6,
+    onFinish,
+    onChange,
+    sensitive,
+    regex,
+    size,
+    id,
+    ...restProps
+  } = props;
   const [inputValue, setInputValue] = useState('');
   const [splitValue, setSplitValue] = useState<string[]>(
     new Array(total).fill(''),
   );
   const [focus, setFocus] = useState(false);
+  const [finish, setFinish] = useState(false);
   const [focusIndex, setFocusIndex] = useState(0);
+  const defaultId = Date.now();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.includes(`'`)) {
@@ -33,24 +46,28 @@ const App: FC<RcodeProps> = (props) => {
       .trim()
       .split('')
       .filter((item) => (regex as RegExp).test(item));
-    if (currentValueList.length <= (total as number)) {
+    if (currentValueList.length <= total) {
       setInputValue(currentValueList.join(''));
       let labelValueList = [];
       if (sensitive) {
         labelValueList = currentValueList
           .map((item) => (item = '*'))
-          .concat(
-            new Array((total as number) - currentValueList.length).fill(''),
-          );
+          .concat(new Array(total - currentValueList.length).fill(''));
         setSplitValue(labelValueList);
       } else {
         setSplitValue(
           currentValueList.concat(
-            new Array((total as number) - currentValueList.length).fill(''),
+            new Array(total - currentValueList.length).fill(''),
           ),
         );
       }
-      setFocusIndex(currentValueList.length);
+      if (currentValueList.length < total) {
+        setFinish(false);
+        setFocusIndex(currentValueList.length);
+      } else if (currentValueList.length === total) {
+        setFocusIndex(currentValueList.length - 1);
+        setFinish(true);
+      }
     }
 
     if (currentValueList.length === total && onFinish) {
@@ -63,6 +80,8 @@ const App: FC<RcodeProps> = (props) => {
   const generateLabelClassName = (index: number) =>
     classNames('ark-rcode-label', {
       'ark-rcode-label-animate': index === focusIndex && focus,
+      [`ark-rcode-label-${size}`]: size,
+      [`ark-rcode-label-finish`]: finish && index === total - 1,
     });
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode >= 35 && e.keyCode <= 40) {
@@ -78,7 +97,7 @@ const App: FC<RcodeProps> = (props) => {
         onKeyDown={handleKeyDown}
         maxLength={total}
         {...restProps}
-        id="rcode"
+        id={id ? id : `ark-recode-${defaultId}`}
         value={inputValue}
         onChange={handleChange}
         className="ark-rcode-input"
@@ -86,7 +105,7 @@ const App: FC<RcodeProps> = (props) => {
       <div className="ark-rcode-label-wrapper">
         {splitValue.map((item, index) => (
           <label
-            htmlFor="rcode"
+            htmlFor={id ? id : `ark-recode-${defaultId}`}
             key={index}
             className={generateLabelClassName(index)}
           >
@@ -102,6 +121,7 @@ App.defaultProps = {
   total: 6,
   sensitive: false,
   regex: /^[A-Za-z0-9]+$/,
+  size: 'middle',
 };
 
 export default App;

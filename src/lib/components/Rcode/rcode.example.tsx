@@ -8,7 +8,9 @@ const App: FC = () => {
 
   return (
     <div>
-      <Rcode onFinish={onFinish} autoFocus></Rcode>
+      <Rcode total={6} onFinish={onFinish} autoFocus size="small" id="small"></Rcode>
+      <Rcode total={6} onFinish={onFinish} autoFocus></Rcode>
+      <Rcode total={6} onFinish={onFinish} autoFocus size="large"></Rcode>
     </div>
   );
 };
