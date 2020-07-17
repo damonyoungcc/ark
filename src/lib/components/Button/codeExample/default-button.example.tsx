@@ -3,14 +3,23 @@ import HighLight from '../../../tools/HighLight.tool';
 
 const Demo = () => {
   const code = `
-  import { Button } from 'ark';
-  
-  const App = () => {
-    return <Button>按钮</Button>
-  };
+  import React, { FC } from 'react';
+  import Button from './button';
 
-  export default App;
-  `;
+  const App: FC = () => {
+
+    const handleClick = () => {
+      console.log('hello Button');
+    };
+
+    return (
+      <div>
+        <Button onClick={handleClick} btnType="primary">按钮</Button>
+      </div>
+    );
+  };
+  
+  export default App;`;
 
   return <HighLight code={code}></HighLight>;
 };

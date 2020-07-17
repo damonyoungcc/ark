@@ -30,26 +30,32 @@ const App: FC<Props> = (props) => {
     display: 'table-cell',
     userSelect: 'text',
   };
+
   return (
-    <Highlight {...defaultProps} code={props.code} language="jsx" theme={theme}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className}>
-          {tokens.map((line, i) => (
-            <span
-              style={...lineStyle}
-              key={i}
-              {...getLineProps({ line, key: i })}
-            >
-              <span style={{ ...lineNoStyle }}>{i + 1}</span>
-              <span style={{ ...lineContentStyle }}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </span>
-            </span>
-          ))}
-        </pre>
-      )}
+    <Highlight {...defaultProps} code={props.code} language="tsx" theme={theme}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => {
+        const styless = Object.assign(style, preStyle);
+        return (
+          <pre className={className} style={styless as React.CSSProperties}>
+            {tokens.map((line, i) => (
+              <div
+                style={lineStyle as React.CSSProperties}
+                key={i}
+                {...getLineProps({ line, key: i })}
+              >
+                <span style={lineNoStyle as React.CSSProperties}>{i + 1}</span>
+                <span style={lineContentStyle as React.CSSProperties}>
+                  <code>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </code>
+                </span>
+              </div>
+            ))}
+          </pre>
+        );
+      }}
     </Highlight>
   );
 };
