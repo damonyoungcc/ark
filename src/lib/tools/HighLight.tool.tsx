@@ -6,11 +6,10 @@ interface Props {
 }
 
 const App: FC<Props> = (props) => {
-  const preStyle = {
+  let preStyle = {
     textAlign: 'left',
-    margin: '1em 0',
-    padding: '0.5em',
-    border: '1px solid #ccc',
+    margin: '0',
+    padding: '1.5em',
     fontSize: '14px',
   };
 
@@ -18,13 +17,13 @@ const App: FC<Props> = (props) => {
     display: 'table-row',
   };
 
-  const lineNoStyle = {
-    display: 'table-cell',
-    textAlign: 'right',
-    paddingRight: '1em',
-    userSelect: 'none',
-    opacity: '0.5',
-  };
+  // const lineNoStyle = {
+  //   display: 'table-cell',
+  //   textAlign: 'right',
+  //   paddingRight: '1em',
+  //   userSelect: 'none',
+  //   opacity: '0.5',
+  // };
 
   const lineContentStyle = {
     display: 'table-cell',
@@ -34,7 +33,7 @@ const App: FC<Props> = (props) => {
   return (
     <Highlight {...defaultProps} code={props.code} language="tsx" theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
-        const styless = Object.assign(style, preStyle);
+        const styless = {...style, ...preStyle};
         return (
           <pre className={className} style={styless as React.CSSProperties}>
             {tokens.map((line, i) => (
@@ -43,7 +42,7 @@ const App: FC<Props> = (props) => {
                 key={i}
                 {...getLineProps({ line, key: i })}
               >
-                <span style={lineNoStyle as React.CSSProperties}>{i + 1}</span>
+                {/* <span style={lineNoStyle as React.CSSProperties}>{i + 1}</span> */}
                 <span style={lineContentStyle as React.CSSProperties}>
                   <code>
                     {line.map((token, key) => (
