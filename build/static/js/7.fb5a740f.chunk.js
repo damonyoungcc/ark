@@ -1,0 +1,2 @@
+(this.webpackJsonpark=this.webpackJsonpark||[]).push([[7],{90:function(e,a,n){"use strict";n.r(a),n.d(a,"MenuExample",(function(){return u}));var t=n(0),l=n.n(t),r=n(15),c=n(32),u=function(){return l.a.createElement(r.a,{defaultIndex:"0"},l.a.createElement(c.a,null,"cool link"),l.a.createElement(c.a,{disabled:!0},"disabled"),l.a.createElement(c.a,null,"cool link 2"))};a.default=u}}]);
+//# sourceMappingURL=7.fb5a740f.chunk.js.map
