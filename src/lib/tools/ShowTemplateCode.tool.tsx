@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, useState } from 'react';
 import Icon from '../components/Icon/icon';
 import Transition from '../components/Transition/transition';
-import './show_template.scss';
+import './style/show_template.scss';
 
 interface ShowCodeProps {
   title: string;
