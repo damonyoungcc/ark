@@ -10,4 +10,28 @@
 }
 .content {
   padding: 0 170px 0 50px;
+  color: #000000a6;
+}
+.example-h2 {
+  line-height: 60px;
+}
+.example-h3 {
+  line-height: 50px;
+  margin-top: 30px;
+}
+.example-p {
+  line-height: 30px;
+}
+.example-ul {
+  margin-left: 20px;
+  list-style: circle;
+}
+.example-code {
+  margin: 0 1px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  background: #f2f4f5;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+  color: #000000a6;
 }
