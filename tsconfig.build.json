@@ -13,6 +13,9 @@
   ],
   "exclude": [
     "src/lib/**/*.test.tsx",
-    "src/lib/**/*.example.tsx"
+    "src/lib/**/*.example.tsx",
+    "src/lib/**/*.code.tsx",
+    "src/lib/**/*.tool.tsx",
+    "src/lib/**/*.content.tsx",
   ]
 }

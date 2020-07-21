@@ -44,7 +44,7 @@ $theme-colors:
 );
 
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-monospace:       lucida console,Consolas,Monaco,andale mono,ubuntu mono,monospace;
 $font-family-base:            $font-family-sans-serif !default;
 
 // 字体大小

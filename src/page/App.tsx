@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Routes from '../routes/index.jsx';
-import { flatRoutes } from '../routes/routes_helper';
+import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
 import { Layout } from '../lib';
@@ -25,7 +25,7 @@ const App: React.FC = () => {
                 <Suspense fallback={<div className="loading">loading...</div>}>
                   <Switch>
                     {flatRoutes(Routes).length &&
-                      flatRoutes(Routes).map((item) => (
+                      redirectDefaultRoute(flatRoutes(Routes)).map((item: any) => (
                         <Route
                           path={item.path}
                           exact
@@ -36,9 +36,7 @@ const App: React.FC = () => {
                   </Switch>
                 </Suspense>
               </Header>
-              <Footer>
-                Footer
-              </Footer>
+              <Footer>{/* Footer */}</Footer>
             </Layout>
           </Content>
         </Layout>

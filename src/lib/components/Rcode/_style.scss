@@ -1,0 +1,86 @@
+.ark-rcode-input {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  opacity: 0;
+}
+.ark-rcode-label-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  label {
+    margin-bottom: 0;
+  }
+  .ark-rcode-label {
+    position: relative;
+    text-align: center;
+    color: #2e2f33;
+    border: 1px solid #d8deef;
+    cursor: text;
+    &-animate {
+      border-color: $primary;
+    }
+    &.ark-rcode-label-animate::before {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      width: 1px;
+      height: 45%;
+      content: '';
+      background-color: #2e2f33;
+      animation-name: coruscate;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+    &.ark-rcode-label-finish::before {
+      display: none;
+    }
+    &-middle {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 14px;
+      border-radius: 2px;
+      margin-right: 10px;
+    }
+    &-small {
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 14px;
+      border-radius: 1px;
+      margin-right: 8px;
+    }
+    &-large {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@keyframes coruscate {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
