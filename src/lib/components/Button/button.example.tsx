@@ -12,6 +12,12 @@ const apiList = [
     type: 'boolean',
     defaultValue: 'false',
   },
+  {
+    property: 'href',
+    describe: '点击跳转的地址，指定此属性 button 的行为和 a 链接一致',
+    type: 'string',
+    defaultValue: '-',
+  },
 ];
 
 const App: FC = () => {

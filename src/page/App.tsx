@@ -4,6 +4,7 @@ import Routes from '../routes/index.jsx';
 import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
+import FooterChildren from './Footer';
 import { Layout } from '../lib';
 import './App.scss';
 const { Sider, Content, Header, Footer } = Layout;
@@ -22,21 +23,29 @@ const App: React.FC = () => {
           <Content className="content">
             <Layout>
               <Header>
-                <Suspense fallback={<div className="loading">loading...</div>}>
-                  <Switch>
-                    {flatRoutes(Routes).length &&
-                      redirectDefaultRoute(flatRoutes(Routes)).map((item: any) => (
-                        <Route
-                          path={item.path}
-                          exact
-                          component={item.component}
-                          key={item.path}
-                        />
-                      ))}
-                  </Switch>
-                </Suspense>
+                <div className="content-wrapper">
+                  <Suspense
+                    fallback={<div className="loading">loading...</div>}
+                  >
+                    <Switch>
+                      {flatRoutes(Routes).length &&
+                        redirectDefaultRoute(
+                          flatRoutes(Routes),
+                        ).map((item: any) => (
+                          <Route
+                            path={item.path}
+                            exact
+                            component={item.component}
+                            key={item.path}
+                          />
+                        ))}
+                    </Switch>
+                  </Suspense>
+                </div>
               </Header>
-              <Footer>{/* Footer */}</Footer>
+              <Footer>
+                <FooterChildren />
+              </Footer>
             </Layout>
           </Content>
         </Layout>

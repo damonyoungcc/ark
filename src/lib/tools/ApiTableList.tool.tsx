@@ -16,21 +16,27 @@ const App: FC<ApiListProps> = (props) => {
   return (
     <div>
       <table className="api-table">
-        <tr>
-          <th>属性</th>
-          <th>说明</th>
-          <th>类型</th>
-          <th>默认值</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ApiList.map((item, index) => (
+            <tr key={index}>
+              <td>{item.property}</td>
+              <td>{item.describe}</td>
+              <td>
+                <code>{item.type}</code>
+              </td>
+              <td>{item.defaultValue}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
-      {ApiList.map((item) => (
-        <tr>
-          <td>{item.property}</td>
-          <td>{item.describe}</td>
-          <td>{item.type}</td>
-          <td>{item.defaultValue}</td>
-        </tr>
-      ))}
     </div>
   );
 };
