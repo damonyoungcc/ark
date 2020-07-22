@@ -11,5 +11,5 @@ export { default as Progress } from './components/Progress';
 export { default as Transition } from './components/Transition';
 export { default as Upload } from './components/Upload';
 export { default as Layout } from './components/Layout';
-export { default as Rcode } from './components/Rcode';
+export { default as AutoFocusNext } from './components/AutoFocusNext';
 export { default as useClickOutside } from './hooks/useClickOutside';

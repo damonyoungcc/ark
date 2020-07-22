@@ -33,7 +33,7 @@ body {
   background-color: $body-bg; // 2
   -webkit-text-size-adjust: 100%; // 3
   -webkit-tap-highlight-color: rgba($black, 0); // 4
-  user-select:none;
+  // user-select:none;
 }
 
 // Future-proof rule: in browsers that support :focus-visible, suppress the focus outline

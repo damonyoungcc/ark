@@ -6,19 +6,19 @@ import React, {
   KeyboardEvent,
 } from 'react';
 import classNames from 'classnames';
-export type RcodeSize = 'large' | 'middle' | 'small';
-export interface RcodeProps
+export type AutofocusSize = 'large' | 'middle' | 'small';
+export interface AutofocusProps
   extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
   total?: number;
   onFinish?: (e: ChangeEvent<HTMLInputElement>) => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   sensitive?: boolean;
   regex?: RegExp;
-  size?: RcodeSize;
+  size?: AutofocusSize;
   id?: string;
 }
 
-const App: FC<RcodeProps> = (props) => {
+const App: FC<AutofocusProps> = (props) => {
   const {
     total = 6,
     onFinish,
@@ -78,10 +78,10 @@ const App: FC<RcodeProps> = (props) => {
     }
   };
   const generateLabelClassName = (index: number) =>
-    classNames('ark-rcode-label', {
-      'ark-rcode-label-animate': index === focusIndex && focus,
-      [`ark-rcode-label-${size}`]: size,
-      [`ark-rcode-label-finish`]: finish && index === total - 1,
+    classNames('ark-autofocus-label', {
+      'ark-autofocus-label-animate': index === focusIndex && focus,
+      [`ark-autofocus-label-${size}`]: size,
+      [`ark-autofocus-label-finish`]: finish && index === total - 1,
     });
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode >= 35 && e.keyCode <= 40) {
@@ -100,9 +100,9 @@ const App: FC<RcodeProps> = (props) => {
         id={id ? id : `ark-recode-${defaultId}`}
         value={inputValue}
         onChange={handleChange}
-        className="ark-rcode-input"
+        className="ark-autofocus-input"
       />
-      <div className="ark-rcode-label-wrapper">
+      <div className="ark-autofocus-label-wrapper">
         {splitValue.map((item, index) => (
           <label
             htmlFor={id ? id : `ark-recode-${defaultId}`}

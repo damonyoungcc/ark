@@ -1,12 +1,24 @@
 import Button from './Button';
+import Icon from './Icon';
 import Input from './Input';
 import Layout from './Layout';
 import Menu from './Menu';
-import Rcode from './Rcode';
+import AutoFocusNext from './AutoFocusNext';
+import AutoComplete from './AutoComplete';
+import Progress from './Progress';
 import { autoAddPathToChildren } from './routes_helper';
 
 const routes = autoAddPathToChildren(
-  [].concat(Button, Input, Layout, Menu, Rcode),
+  [].concat(
+    Button,
+    Icon,
+    Input,
+    AutoFocusNext,
+    AutoComplete,
+    Layout,
+    Menu,
+    Progress,
+  ),
 );
 
 export default routes;
