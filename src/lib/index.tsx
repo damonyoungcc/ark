@@ -13,4 +13,5 @@ export { default as Transition } from './components/Transition';
 export { default as Upload } from './components/Upload';
 export { default as Layout } from './components/Layout';
 export { default as AutoFocusNext } from './components/AutoFocusNext';
+export { default as Spin } from './components/Spin';
 export { default as useClickOutside } from './hooks/useClickOutside';

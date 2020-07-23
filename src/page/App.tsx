@@ -5,9 +5,11 @@ import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
 import FooterChildren from './Footer';
-import { Layout } from '../lib';
+import { Layout, Spin, Icon } from '../lib';
 import './App.scss';
 const { Sider, Content, Header, Footer } = Layout;
+const SpinIcon = <Icon icon={['far', 'clock']} className="spin-example-icon" />;
+
 
 const App: React.FC = () => {
   return (
@@ -25,7 +27,11 @@ const App: React.FC = () => {
               <Header>
                 <div className="content-wrapper">
                   <Suspense
-                    fallback={<div className="loading">loading...</div>}
+                    fallback={
+                      <div className="loading">
+                        <Spin indicator={SpinIcon} />
+                      </div>
+                    }
                   >
                     <Switch>
                       {flatRoutes(Routes).length &&

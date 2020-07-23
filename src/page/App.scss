@@ -12,6 +12,19 @@
   .content-wrapper {
     padding: 0 170px 200px 50px;
     color: #000000a6;
+    .loading {
+      position: relative;
+      left: 50%;
+      .spin-example-icon {
+        animation: arkSpinRotateExample 1.2s infinite linear;
+      }
+
+      @keyframes arkSpinRotateExample {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
   }
 }
 .example-h2 {
