@@ -1,0 +1,29 @@
+.api-table {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-spacing: 0;
+  font-size: 13px;
+  margin: 2em 0;
+  line-height: 1.5;
+  th {
+    padding: 12px;
+    border-bottom: 2px solid #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
+      helvetica neue, Arial, noto sans, sans-serif, apple color emoji,
+      segoe ui emoji, segoe ui symbol, noto color emoji;
+  }
+  tbody {
+    tr {
+      transition: all 0.3s;
+      &:hover {
+        background-color: rgba(60, 90, 100, 0.04);
+      }
+    }
+  }
+}

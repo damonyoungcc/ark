@@ -1,6 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas);
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(far, fas);
 
 export { default as Button } from './components/Button';
 export { default as Menu } from './components/Menu';
@@ -11,5 +12,6 @@ export { default as Progress } from './components/Progress';
 export { default as Transition } from './components/Transition';
 export { default as Upload } from './components/Upload';
 export { default as Layout } from './components/Layout';
-export { default as Rcode } from './components/Rcode';
+export { default as AutoFocusNext } from './components/AutoFocusNext';
+export { default as Spin } from './components/Spin';
 export { default as useClickOutside } from './hooks/useClickOutside';

@@ -1,8 +1,24 @@
 import React, { FC } from 'react';
 import TemplateShow from '../../tools/ShowTemplateCode.tool';
+import ApiTableList from '../../tools/ApiTableList.tool';
 import DefaultCode from './codeExample/01_default-button.code';
 import DefaultExcample from './codeExample/01_default-button.example';
 import DefaultContent from './codeExample/01_default-button.content';
+
+const apiList = [
+  {
+    property: 'disabled',
+    describe: '按钮失效状态',
+    type: 'boolean',
+    defaultValue: 'false',
+  },
+  {
+    property: 'href',
+    describe: '点击跳转的地址，指定此属性 button 的行为和 a 链接一致',
+    type: 'string',
+    defaultValue: '-',
+  },
+];
 
 const App: FC = () => {
   return (
@@ -22,6 +38,9 @@ const App: FC = () => {
         ExampleComponent={<DefaultExcample />}
         content={<DefaultContent />}
       />
+      <h3 className="example-h3">API</h3>
+      <p className="example-p">通过设置 Button 的属性来产生不同的按钮样式</p>
+      <ApiTableList ApiList={apiList} />
     </div>
   );
 };

@@ -9,8 +9,23 @@
   overflow: auto;
 }
 .content {
-  padding: 0 170px 0 50px;
-  color: #000000a6;
+  .content-wrapper {
+    padding: 0 170px 200px 50px;
+    color: #000000a6;
+    .loading {
+      position: relative;
+      left: 50%;
+      .spin-example-icon {
+        animation: arkSpinRotateExample 1.2s infinite linear;
+      }
+
+      @keyframes arkSpinRotateExample {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
 }
 .example-h2 {
   line-height: 60px;
@@ -25,6 +40,7 @@
 .example-ul {
   margin-left: 20px;
   list-style: circle;
+  line-height: 30px;
 }
 .example-code {
   margin: 0 1px;

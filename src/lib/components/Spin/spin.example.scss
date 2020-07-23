@@ -1,0 +1,14 @@
+.spin-example-icon {
+  // transform: rotate(45deg);
+  animation: arkSpinRotateExample 1.2s infinite linear;
+}
+
+@keyframes arkSpinRotateExample {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.example {
+  display: flex;
+  justify-content: space-around;
+}

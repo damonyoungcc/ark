@@ -1,17 +1,17 @@
-.ark-rcode-input {
+.ark-autofocus-input {
   position: absolute;
   top: -100%;
   left: -100%;
   opacity: 0;
 }
-.ark-rcode-label-wrapper {
+.ark-autofocus-label-wrapper {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   label {
     margin-bottom: 0;
   }
-  .ark-rcode-label {
+  .ark-autofocus-label {
     position: relative;
     text-align: center;
     color: #2e2f33;
@@ -20,7 +20,7 @@
     &-animate {
       border-color: $primary;
     }
-    &.ark-rcode-label-animate::before {
+    &.ark-autofocus-label-animate::before {
       display: block;
       position: absolute;
       left: 50%;
@@ -34,7 +34,7 @@
       animation-iteration-count: infinite;
       animation-fill-mode: both;
     }
-    &.ark-rcode-label-finish::before {
+    &.ark-autofocus-label-finish::before {
       display: none;
     }
     &-middle {
