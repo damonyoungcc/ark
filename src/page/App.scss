@@ -15,15 +15,6 @@
     .loading {
       position: relative;
       left: 50%;
-      .spin-example-icon {
-        animation: arkSpinRotateExample 1.2s infinite linear;
-      }
-
-      @keyframes arkSpinRotateExample {
-        to {
-          transform: rotate(360deg);
-        }
-      }
     }
   }
 }
