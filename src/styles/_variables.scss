@@ -289,3 +289,6 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-bar-color:                $white !default;
 $progress-bar-transition:           width .6s ease !default;
+
+// Spin
+$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);

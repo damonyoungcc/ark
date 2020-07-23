@@ -6,6 +6,7 @@ import Menu from './Menu';
 import AutoFocusNext from './AutoFocusNext';
 import AutoComplete from './AutoComplete';
 import Progress from './Progress';
+import Spin from './Spin';
 import { autoAddPathToChildren } from './routes_helper';
 
 const routes = autoAddPathToChildren(
@@ -18,6 +19,7 @@ const routes = autoAddPathToChildren(
     Layout,
     Menu,
     Progress,
+    Spin,
   ),
 );
 
