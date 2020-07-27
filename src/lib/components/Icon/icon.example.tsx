@@ -1,7 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import TemplateShow from '../../tools/ShowTemplateCode.tool';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import Icon from './icon';
 import './icon.example.scss';
+
+import Code01 from './codeExample/01_code';
+import Content01 from './codeExample/01_content';
+import Code02 from './codeExample/02_code';
+import Content02 from './codeExample/02_content';
+
 const IconRegularNames: IconName[] = [
   'address-book',
   'address-card',
@@ -1158,25 +1165,67 @@ const IconSolidNames: IconName[] = [
   'yin-yang',
 ];
 
-const App: FC = () => {
+const IconRegular = () => {
+  const [name, setName] = useState('');
   return (
-    <div>
-      <h3 className="example-h3">Regular Icon</h3>
+    <>
       <div className="regular-icon-wrapper">
+        {name && <p className="show-icon-name">{name}</p>}
         {IconRegularNames.map((item, index) => (
-          <div key={index} className="regular-icon">
+          <div
+            key={index}
+            className="regular-icon"
+            onClick={() => setName(item)}
+            style={{ backgroundColor: `${name === item ? '#dbdbdb' : ''}` }}
+          >
             <Icon icon={['far', item]} size="2x" />
           </div>
         ))}
       </div>
-      <h3 className="example-h3">Solid Icon</h3>
+    </>
+  );
+};
+
+const IconSolid = () => {
+  const [name, setName] = useState('');
+  return (
+    <>
       <div className="solid-icon-wrapper">
+        {name && <p className="show-icon-name">{name}</p>}
         {IconSolidNames.map((item, index) => (
-          <div key={index} className="solid-icon">
+          <div
+            key={index}
+            className="solid-icon"
+            onClick={() => setName(item)}
+            style={{ backgroundColor: `${name === item ? '#dbdbdb' : ''}` }}
+          >
             <Icon icon={['fas', item]} size="2x" />
           </div>
         ))}
       </div>
+    </>
+  );
+};
+
+const App: FC = () => {
+  return (
+    <div>
+      <h2 className="example-h2">Icon 图标</h2>
+      <p className="example-p">使用 SVG 图标</p>
+      <h3 className="example-h3">常规 Icon</h3>
+      <TemplateShow
+        title="常规风格 Icon"
+        CodeComponent={<Code01 />}
+        ExampleComponent={<IconRegular />}
+        content={<Content01 />}
+      />
+      <h3 className="example-h3">实底风格 Icon</h3>
+      <TemplateShow
+        title="实底风格 Icon"
+        CodeComponent={<Code02 />}
+        ExampleComponent={<IconSolid />}
+        content={<Content02 />}
+      />
     </div>
   );
 };

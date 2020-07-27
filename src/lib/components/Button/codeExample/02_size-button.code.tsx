@@ -8,9 +8,12 @@ const Demo = () => {
   const App = () => {
     return (
       <>
-        <Button btnType="primary" size="sm">Small Button</Button>
+        <Button size="sm" btnType="primary">Small Button</Button>
+        <Button size="sm">Small Button</Button>
         <Button btnType="primary">Default Button</Button>
+        <Button>Default Button</Button>
         <Button btnType="primary" size="lg">Large Button</Button>
+        <Button size="lg">Large Button</Button>
       </>
     );
   };
