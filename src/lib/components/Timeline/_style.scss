@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-
   &-item {
     position: relative;
     margin: 0;
@@ -31,7 +30,6 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: $blue;
       border: 2px solid transparent;
       border-radius: 100px;
 
@@ -41,18 +39,18 @@
       }
 
       &-red {
-        color: red;
-        border-color: red;
+        color: $danger;
+        border-color: $danger;
       }
 
       &-green {
-        color: green;
-        border-color: green;
+        color: $success;
+        border-color: $success;
       }
 
       &-gray {
-        color: gray;
-        border-color: gray;
+        color: $secondary;
+        border-color: $secondary;
       }
     }
 
@@ -73,7 +71,7 @@
 
     &-content {
       position: relative;
-      top: -(14 * 1.5 -14 + 1)px;
+      top: -7px;
       margin: 0 0 0 26px;
       word-break: break-word;
     }
@@ -88,19 +86,17 @@
     }
   }
 
-  .ark-timeline-alternate,
-  .ark-timeline-right,
-  .ark-timeline-label {
+  &-alternate,
+  &-right,
+  &-label {
     .ark-timeline-item {
       &-tail,
       &-head,
       &-head-custom {
         left: 50%;
       }
-
       &-head {
         margin-left: -4px;
-
         &-custom {
           margin-left: 1px;
         }
@@ -124,16 +120,12 @@
     }
   }
 
-  .ark-timeline-right {
+  &-right {
     .ark-timeline-item-right {
       .ark-timeline-item-tail,
       .ark-timeline-item-head,
       .ark-timeline-item-head-custom {
-        // stylelint-disable-next-line function-calc-no-invalid
         left: calc(100% - 4px - 0);
-      }
-      .ark-timeline-item-content {
-        width: calc(100% - 18px);
       }
     }
   }
@@ -144,25 +136,10 @@
     border-left: 2px dotted #f0f0f0;
   }
 
-  &-reverse &-item-last &-item-tail {
-    display: none;
-  }
-
-  &-reverse &-item-pending {
-    .ark-timeline-item-tail {
-      top: 15px;
-      display: block;
-      height: calc(100% - 15px);
-      border-left: 2px dotted #f0f0f0;
-    }
-    .ark-timeline-item-content {
-      min-height: 48px;
-    }
-  }
-  .ark-timeline-label {
+  &-label {
     .ark-timeline-item-label {
       position: absolute;
-      top: -(14 * 1.5 -14) + 1px;
+      top: -6px;
       width: calc(50% - 12px);
       text-align: right;
     }

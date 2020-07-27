@@ -51,16 +51,7 @@ const App: FC<TimeLineItemProps> = (props) => {
     <li {...omit(restProps, ['position'])} className={itemClassName}>
       {label && <div className="ark-timeline-item-label">{label}</div>}
       <div className="ark-timeline-item-tail" />
-      <div
-        className={dotClassName}
-        style={{
-          borderColor: /blue|red|green|gray/.test(color || '')
-            ? undefined
-            : color,
-        }}
-      >
-        {dot}
-      </div>
+      <div className={dotClassName}>{dot}</div>
       <div className="ark-timeline-item-content">{children}</div>
     </li>
   );

@@ -1,14 +1,16 @@
 import React, { FC, cloneElement, ReactNode, CSSProperties } from 'react';
 import classNames from 'classnames';
 import TimelineItem, { TimeLineItemProps } from './timeline-item';
-import Spin from '../Spin';
+import Icon from '../Icon';
 
 export interface TimelineProps {
   className?: string;
+  // pending是布尔真值时展示幽灵节点，
   pending?: ReactNode;
+  // 如果pending是React元素，可用于定制该节点内容，pendingDot 将可以用于定制其轴点
   pendingDot?: ReactNode;
   style?: CSSProperties;
-  reverse?: boolean;
+  // 设置mode，改变时间轴和内容的相对位置
   mode?: 'left' | 'right' | 'alternate';
 }
 
@@ -21,23 +23,24 @@ const App: TimelineType = (props) => {
     className,
     pending = null,
     pendingDot,
-    reverse,
     mode,
     children,
     ...restProps
   } = props;
   const pendingNode = typeof pending === 'boolean' ? null : pending;
 
+  // 存在幽灵节点，则在最后追加一个节点
   const pendingItem = pending ? (
-    <TimelineItem pending={!!pending} dot={pendingDot || <Spin />}>
+    <TimelineItem
+      pending={!!pending}
+      dot={pendingDot || <Icon icon={['fas', 'spinner']} pulse />}
+    >
       {pendingNode}
     </TimelineItem>
   ) : null;
 
-  const timeLineItems = reverse
-    ? [pendingItem, ...React.Children.toArray(children).reverse()]
-    : [...React.Children.toArray(children), pendingItem];
-
+  const timeLineItems = [...React.Children.toArray(children), pendingItem];
+  console.log(timeLineItems);
   const getPositionCls = (ele: React.ReactElement<any>, index: number) => {
     if (mode === 'alternate') {
       if (ele.props.position === 'right') {
@@ -73,7 +76,7 @@ const App: TimelineType = (props) => {
       return cloneElement(ele, {
         className: classNames([
           ele.props.className,
-          !reverse && !!pending ? pendingClass : readyClass,
+          !!pending ? pendingClass : readyClass,
           getPositionCls(ele, index),
         ]),
       });
@@ -88,7 +91,6 @@ const App: TimelineType = (props) => {
     'ark-timeline',
     {
       'ark-timeline-pending': !!pending,
-      'ark-timeline-reverse': !!reverse,
       [`ark-timeline-${mode}`]: !!mode && !hasLabelItem,
       [`ark-timeline-label`]: hasLabelItem,
     },
@@ -105,7 +107,6 @@ const App: TimelineType = (props) => {
 App.Item = TimelineItem;
 
 App.defaultProps = {
-  reverse: false,
   mode: '' as TimelineProps['mode'],
 };
 

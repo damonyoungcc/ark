@@ -14,9 +14,7 @@ const SpinIcon3 = (
 const SpinIcon4 = (
   <Icon icon={['fas', 'hourglass-end']} className="spin-example-icon" />
 );
-const SpinIcon5 = (
-  <Icon icon={['fas', 'spinner']} className="spin-example-icon" />
-);
+const SpinIcon5 = <Icon icon={['fas', 'spinner']} pulse />;
 const App = () => {
   const [loading, setLoading] = useState(false);
 
