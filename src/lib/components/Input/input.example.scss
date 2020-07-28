@@ -1,0 +1,11 @@
+.show-wrapper {
+  .show-template_wrapper {
+    &:last-child {
+      float: right;
+    }
+    &:first-child {
+      float: left;
+    }
+    width: 49%;
+  }
+}

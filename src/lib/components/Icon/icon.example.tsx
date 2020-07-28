@@ -4,10 +4,10 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 import Icon from './icon';
 import './icon.example.scss';
 
-import Code01 from './codeExample/01_code';
-import Content01 from './codeExample/01_content';
-import Code02 from './codeExample/02_code';
-import Content02 from './codeExample/02_content';
+import Code01 from './codeExample/01_icon.code';
+import Content01 from './codeExample/01_icon.content';
+import Code02 from './codeExample/02_icon.code';
+import Content02 from './codeExample/02_icon.content';
 
 const IconRegularNames: IconName[] = [
   'address-book',
