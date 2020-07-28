@@ -7,7 +7,7 @@ interface ShowCodeProps {
   title: string;
   ExampleComponent: ReactElement;
   CodeComponent: ReactElement;
-  content: ReactElement;
+  content: ReactElement | string;
 }
 
 const App: FC<ShowCodeProps> = (props) => {

@@ -8,4 +8,11 @@
     }
     width: 49%;
   }
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
 }

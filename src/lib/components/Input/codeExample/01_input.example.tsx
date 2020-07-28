@@ -3,7 +3,7 @@ import Input from '../input';
 const App = () => {
   return (
     <>
-      <Input style={{ width: '300px' }} />
+      <Input style={{ width: '300px' }} placeholder="基本输入框" />
     </>
   );
 };
