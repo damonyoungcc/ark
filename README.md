@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://yangdepp.gitee.io/ark/build/index.htm">
+  <a href="https://yangdepp.gitee.io/ark/build/index.html">
     <img width="200" src="https://yangdepp.github.io/ark/build/static/media/ark.3d5a7f33.svg">
   </a>
 </p>
