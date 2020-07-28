@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://yangdepp.github.io/ark/build/index.html">
+  <a href="https://yangdepp.gitee.io/ark/build/index.htm">
     <img width="200" src="https://yangdepp.github.io/ark/build/static/media/ark.3d5a7f33.svg">
   </a>
 </p>
@@ -25,7 +25,7 @@
 
 ## 🖥 兼容环境
 
-- 现代浏览器和 IE11（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
+- 现代浏览器和 IE11
 
 | IE / Edge | Firefox | Chrome | Safari | Electron |
 | --- | --- | --- | --- | --- |
@@ -81,13 +81,9 @@ $ yarn start
 
 打开浏览器访问 http://127.0.0.1:3000
 
-## 🤝 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 参与共建
 
-欢迎欢迎！
-
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
-
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+欢迎欢迎`Issue` `PR`
 
 ## 👥 社区互助
 
