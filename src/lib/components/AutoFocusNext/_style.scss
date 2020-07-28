@@ -1,13 +1,13 @@
 .ark-autofocus-input {
-  position: absolute;
-  top: -100%;
-  left: -100%;
+  position: fixed;
+  left: -9999px;
   opacity: 0;
 }
 .ark-autofocus-label-wrapper {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 0 10px 0;
   label {
     margin-bottom: 0;
   }
