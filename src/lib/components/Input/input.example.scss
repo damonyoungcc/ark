@@ -1,0 +1,18 @@
+.show-wrapper {
+  .show-template_wrapper {
+    &:last-child {
+      float: right;
+    }
+    &:first-child {
+      float: left;
+    }
+    width: 49%;
+  }
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
