@@ -3,7 +3,7 @@ import HighLight from '../../../tools/HighLight.tool';
 
 const Demo = () => {
   const code = `  import React from 'react';
-  import { AutoFocusNext } from 'ark';
+  import { AutoFocusNext } from 'arkd';
 
   const App = () => {
     return (

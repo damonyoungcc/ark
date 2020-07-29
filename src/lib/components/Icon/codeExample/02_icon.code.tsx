@@ -3,7 +3,7 @@ import HighLight from '../../../tools/HighLight.tool';
 
 const Demo = () => {
   const code = `  import React from 'react';
-  import { Icon } from 'ark';
+  import { Icon } from 'arkd';
 
   const App = () => {
     return (
