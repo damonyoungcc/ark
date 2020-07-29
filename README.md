@@ -44,7 +44,7 @@ yarn add ark
 ## 🔨 示例
 
 ```jsx
-import { Button, Input } from 'ank';
+import { Button, Input } from 'ark';
 
 const App = () => (
   <>
