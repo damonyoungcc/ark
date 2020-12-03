@@ -4,7 +4,7 @@ import Routes from '../routes/index.jsx';
 import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
-import FooterChildren from './Footer';
+// import FooterChildren from './Footer';
 import { Layout, Spin } from '../lib';
 import './App.scss';
 const { Sider, Content, Header, Footer } = Layout;
@@ -48,7 +48,7 @@ const App: React.FC = () => {
                 </div>
               </Header>
               <Footer>
-                <FooterChildren />
+                {/* <FooterChildren /> */}
               </Footer>
             </Layout>
           </Content>
