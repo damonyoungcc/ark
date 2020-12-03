@@ -1,2 +1,0 @@
-(this.webpackJsonpark=this.webpackJsonpark||[]).push([[12],{104:function(e,t,n){"use strict";n.r(t);var a=n(0),r=n.n(a),c=n(23);t.default=function(){return r.a.createElement("div",null,r.a.createElement("div",null,r.a.createElement(c.a,{percent:80,showText:!0})))}}}]);
-//# sourceMappingURL=12.d2e97646.chunk.js.map

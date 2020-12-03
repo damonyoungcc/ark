@@ -1,0 +1,2 @@
+.spin-example-icon{-webkit-animation:arkSpinRotateExample 1.2s linear infinite;animation:arkSpinRotateExample 1.2s linear infinite}@-webkit-keyframes arkSpinRotateExample{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes arkSpinRotateExample{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.example{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}
+/*# sourceMappingURL=9.df36ecfd.chunk.css.map */
