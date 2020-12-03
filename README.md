@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://yangdepp.gitee.io/ark/build/index.htm">
+  <a href="https://yangdepp.gitee.io/ark/build/index.html">
     <img width="200" src="https://yangdepp.github.io/ark/build/static/media/ark.3d5a7f33.svg">
   </a>
 </p>
@@ -34,17 +34,17 @@
 ## 📦 安装
 
 ```bash
-npm install ark --save
+npm install arkd --save
 ```
 
 ```bash
-yarn add ark
+yarn add arkd
 ```
 
 ## 🔨 示例
 
 ```jsx
-import { Button, Input } from 'ank';
+import { Button, Input } from 'arkd';
 
 const App = () => (
   <>
@@ -57,7 +57,7 @@ const App = () => (
 引入样式：
 
 ```jsx
-import 'ark/dist/index.css';
+import 'arkd/dist/index.css';
 ```
 
 ### 🛡 TypeScript

@@ -1,6 +1,6 @@
 {
-  "name": "ark",
-  "version": "0.1.0",
+  "name": "arkd",
+  "version": "0.1.2",
   "description": "React components library",
   "author": "yangdepp",
   "private": false,
@@ -42,18 +42,12 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
