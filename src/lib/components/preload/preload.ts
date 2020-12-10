@@ -1,3 +1,4 @@
+import React from 'react';
 import enhance from './enhance';
 
 export interface PreloadsType {

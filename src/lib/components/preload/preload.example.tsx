@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import preload from './preload';
 import Spin from '../Spin';
 import axios from 'axios';
-
 const getList = (props: any) =>
   axios.get('/mock/list.json').then((data) => data.data);
 const getOrder = axios.get('/mock/order.json').then((data) => undefined);
@@ -36,10 +35,10 @@ const test = async function test(props: any) {
     testFnLongTimeResolve: () =>
       new Promise((r) => setTimeout(() => r('testFnLongTimeResolve'), 2000)),
   }),
-  minloadTime: 5000,
+  minloadTime: 0,
   loadingComponent: Spin,
 })
-class PreloadExample extends Component {
+class PreloadExample extends Component<any, any> {
   render() {
     console.log('props', this.props);
     return <div>hello world</div>;
