@@ -5,8 +5,9 @@ import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
 // import FooterChildren from './Footer';
-import { Layout, Spin } from '../lib';
+import { Layout, Spin, Icon } from '../lib';
 import './App.scss';
+const SpinIcon = <Icon icon={['fas', 'spinner']} pulse />;
 const { Sider, Content, Header, Footer } = Layout;
 
 const App: React.FC = () => {
@@ -27,7 +28,7 @@ const App: React.FC = () => {
                   <Suspense
                     fallback={
                       <div className="loading">
-                        <Spin />
+                        <Spin indicator={SpinIcon} />
                       </div>
                     }
                   >
@@ -47,9 +48,7 @@ const App: React.FC = () => {
                   </Suspense>
                 </div>
               </Header>
-              <Footer>
-                {/* <FooterChildren /> */}
-              </Footer>
+              <Footer>{/* <FooterChildren /> */}</Footer>
             </Layout>
           </Content>
         </Layout>

@@ -6,7 +6,8 @@
     "declaration": true,
     "jsx": "react",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators":true
   },
   "include": [
     "src/lib"
