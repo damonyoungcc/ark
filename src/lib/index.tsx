@@ -16,3 +16,4 @@ export { default as AutoFocusNext } from './components/AutoFocusNext';
 export { default as Spin } from './components/Spin';
 export { default as useClickOutside } from './hooks/useClickOutside';
 export { default as useDebounce } from './hooks/useDebounce';
+export { default as preload } from './components/preload';

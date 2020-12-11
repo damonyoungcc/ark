@@ -8,6 +8,7 @@ import AutoComplete from './AutoComplete';
 import Progress from './Progress';
 import Spin from './Spin';
 import Timeline from './Timeline';
+import Preload from './Preload';
 import { autoAddPathToChildren } from './routes_helper';
 
 const routes = autoAddPathToChildren(
@@ -22,6 +23,7 @@ const routes = autoAddPathToChildren(
     Progress,
     Spin,
     Timeline,
+    Preload,
   ),
 );
 

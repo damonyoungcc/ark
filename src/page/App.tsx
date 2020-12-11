@@ -4,9 +4,10 @@ import Routes from '../routes/index.jsx';
 import { flatRoutes, redirectDefaultRoute } from '../routes/routes_helper';
 import SiderChildren from './Sider';
 import HeaderChildren from './Header';
-// import FooterChildren from './Footer';
-import { Layout, Spin } from '../lib';
+import PreloadExample from '../lib/components/preload/preload.example';
+import { Layout, Spin, Icon } from '../lib';
 import './App.scss';
+const SpinIcon = <Icon icon={['fas', 'spinner']} pulse />;
 const { Sider, Content, Header, Footer } = Layout;
 
 const App: React.FC = () => {
@@ -27,29 +28,42 @@ const App: React.FC = () => {
                   <Suspense
                     fallback={
                       <div className="loading">
-                        <Spin />
+                        <Spin indicator={SpinIcon} />
                       </div>
                     }
                   >
                     <Switch>
                       {flatRoutes(Routes).length &&
-                        redirectDefaultRoute(
-                          flatRoutes(Routes),
-                        ).map((item: any) => (
-                          <Route
-                            path={item.path}
-                            exact
-                            component={item.component}
-                            key={item.path}
-                          />
-                        ))}
+                        redirectDefaultRoute(flatRoutes(Routes)).map(
+                          (item: any) => {
+                            if (item.path === '/preload') {
+                              return (
+                                <Route
+                                  path={item.path}
+                                  exact
+                                  component={() => (
+                                    <PreloadExample testProps={'testprops'} />
+                                  )}
+                                  key={item.path}
+                                />
+                              );
+                            } else {
+                              return (
+                                <Route
+                                  path={item.path}
+                                  exact
+                                  component={item.component}
+                                  key={item.path}
+                                />
+                              );
+                            }
+                          },
+                        )}
                     </Switch>
                   </Suspense>
                 </div>
               </Header>
-              <Footer>
-                {/* <FooterChildren /> */}
-              </Footer>
+              <Footer>{/* <FooterChildren /> */}</Footer>
             </Layout>
           </Content>
         </Layout>
