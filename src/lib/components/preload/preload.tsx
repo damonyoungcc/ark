@@ -15,10 +15,10 @@ export interface PreloadParamsType {
   LoadingComponent?: React.ComponentType<any>;
 }
 
-function preload(params: PreloadParamsType) {
+const preload = (params: PreloadParamsType) => {
   return function <P>(OrignalComponent: React.ComponentType<P>) {
     return enhance(params)(OrignalComponent);
   };
-}
+};
 
 export default preload;

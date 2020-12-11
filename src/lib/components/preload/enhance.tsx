@@ -7,16 +7,19 @@ function isObject(obj: any) {
 function isFunction(fn: any) {
   return fn && typeof fn === 'function';
 }
-interface IState {
+export interface WrapperedComponentState {
   isReady: boolean;
-  data: {};
+  data: any;
 }
 
-function enhance(params: PreloadParamsType) {
+const enhance = (params: PreloadParamsType) => {
   let { preloads, minloadTime = 0, LoadingComponent = Spin } = params;
-  return function<T>(OrignalComponent: React.ComponentType<T>){
+  return function <T>(OrignalComponent: React.ComponentType<T>) {
     let timerId: number;
-    return class WrapperedComponent extends React.Component<T, IState> {
+    return class WrapperedComponent extends React.Component<
+      T,
+      WrapperedComponentState
+    > {
       constructor(props: T) {
         super(props);
         this.state = {
@@ -108,6 +111,6 @@ function enhance(params: PreloadParamsType) {
       }
     };
   };
-}
+};
 
 export default enhance;
