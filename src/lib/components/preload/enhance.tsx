@@ -1,20 +1,23 @@
 import React from 'react';
-import { PreloadParamsType, PreloadsFnType, PreloadsType } from './preload';
+import { PreloadParamsType, PreloadsType, PreloadsFnType } from './preload';
 import Spin from '../Spin';
-
 function isObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object, Object]';
 }
 function isFunction(fn: any) {
   return fn && typeof fn === 'function';
 }
+interface IState {
+  isReady: boolean;
+  data: {};
+}
 
-const enhance = (params: PreloadParamsType) => {
+function enhance<T>(params: PreloadParamsType<T>) {
   let { preloads, minloadTime = 0, loadingComponent = Spin } = params;
-  return (OrignalComponent: React.ComponentClass) => {
+  return (OrignalComponent: React.ComponentType<T>) => {
     let timerId: number;
-    return class WrapperedComponent extends React.Component<any, any> {
-      constructor(props: any) {
+    return class WrapperedComponent extends React.Component<T, IState> {
+      constructor(props: T) {
         super(props);
         this.state = {
           isReady: false,
@@ -35,18 +38,18 @@ const enhance = (params: PreloadParamsType) => {
               // Promise.resolve().then(() => {
               resolve({
                 // 把组件接收的props当做preload的参数
-                ...(preloads as PreloadsFnType)(this.props),
+                ...(preloads as PreloadsFnType<T>)(this.props),
               });
             } else {
-              throw new Error('preload 需为一个object或function');
+              throw new Error('preloads 需为一个object或function');
             }
           }).then((preloads: any) => {
             const props = this.props;
             const __indexName__: PreloadsType = {};
             Promise.all(
-              Object.keys(preloads).map((key, i) => {
+              Object.keys(preloads as PreloadsType).map((key, i) => {
                 __indexName__[i] = key;
-                if (props[key]) {
+                if ((props as any)[key]) {
                   console.warn(`预加载数据${key}与props冲突，会覆盖props数据`);
                 }
                 let temp = preloads[key];
@@ -97,16 +100,14 @@ const enhance = (params: PreloadParamsType) => {
         window.clearTimeout(timerId);
       }
       render() {
-        return this.state.isReady
-          ? React.createElement(
-              OrignalComponent,
-              { ...this.props, ...this.state.data },
-              null,
-            )
-          : React.createElement(loadingComponent, null);
+        return this.state.isReady ? (
+          <OrignalComponent {...this.props} {...this.state.data} />
+        ) : (
+          React.createElement(loadingComponent, null)
+        );
       }
     };
   };
-};
+}
 
 export default enhance;

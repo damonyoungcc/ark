@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import preload from './preload';
 import Spin from '../Spin';
 import axios from 'axios';
-const getList = (props: any) =>
+const getList = (props: ExampleProps) =>
   axios.get('/mock/list.json').then((data) => data.data);
 const getOrder = axios.get('/mock/order.json').then((data) => undefined);
-const test = async function test(props: any) {
+const test = async function test(props: ExampleProps) {
   const result1 = await axios.get('/mock/list.json');
   const result = await axios.get(
     `/mock/order.json?name=${result1.data[0].name}`,
@@ -13,15 +13,19 @@ const test = async function test(props: any) {
   return result.data;
 };
 
+interface ExampleProps {
+  testProps: string;
+}
+
 @preload({
-  preloads: (props: any) => ({
+  preloads: (props: ExampleProps) => ({
     listData: getList(props),
     orderData: getOrder,
     testAsyncFunction: test(props),
-    testNormalFunction: (props: any) => {
-      return props.test + 1;
+    testNormalFunction: (props: ExampleProps) => {
+      return props.testProps + 1;
     },
-    testNoFunction: props.test + 2,
+    testNoFunction: props.testProps + 2,
     testFalsy: undefined,
     testNull: null,
     test: 3,
@@ -38,7 +42,7 @@ const test = async function test(props: any) {
   minloadTime: 0,
   loadingComponent: Spin,
 })
-class PreloadExample extends Component<any, any> {
+class PreloadExample extends Component<ExampleProps, any> {
   render() {
     console.log('props', this.props);
     return <div>hello world</div>;
