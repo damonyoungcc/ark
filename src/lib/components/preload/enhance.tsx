@@ -12,9 +12,9 @@ interface IState {
   data: {};
 }
 
-function enhance<T>(params: PreloadParamsType<T>) {
-  let { preloads, minloadTime = 0, loadingComponent = Spin } = params;
-  return (OrignalComponent: React.ComponentType<T>) => {
+function enhance(params: PreloadParamsType) {
+  let { preloads, minloadTime = 0, LoadingComponent = Spin } = params;
+  return function<T>(OrignalComponent: React.ComponentType<T>){
     let timerId: number;
     return class WrapperedComponent extends React.Component<T, IState> {
       constructor(props: T) {
@@ -38,7 +38,7 @@ function enhance<T>(params: PreloadParamsType<T>) {
               // Promise.resolve().then(() => {
               resolve({
                 // 把组件接收的props当做preload的参数
-                ...(preloads as PreloadsFnType<T>)(this.props),
+                ...(preloads as PreloadsFnType)(this.props),
               });
             } else {
               throw new Error('preloads 需为一个object或function');
@@ -103,7 +103,7 @@ function enhance<T>(params: PreloadParamsType<T>) {
         return this.state.isReady ? (
           <OrignalComponent {...this.props} {...this.state.data} />
         ) : (
-          React.createElement(loadingComponent, null)
+          React.createElement(LoadingComponent, null)
         );
       }
     };

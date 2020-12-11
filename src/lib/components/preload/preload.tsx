@@ -5,18 +5,18 @@ export interface PreloadsType {
   [key: string]: any;
 }
 
-export interface PreloadsFnType<T> {
-  (params: T): PreloadsType;
+export interface PreloadsFnType {
+  (params: any): PreloadsType;
 }
 
-export interface PreloadParamsType<P> {
-  preloads: PreloadsType | PreloadsFnType<P>;
+export interface PreloadParamsType {
+  preloads: PreloadsType | PreloadsFnType;
   minloadTime?: number;
-  loadingComponent?: React.ComponentType<any>;
+  LoadingComponent?: React.ComponentType<any>;
 }
 
-function preload<P>(params: PreloadParamsType<P>) {
-  return function (OrignalComponent: React.ComponentType<P>) {
+function preload(params: PreloadParamsType) {
+  return function <P>(OrignalComponent: React.ComponentType<P>) {
     return enhance(params)(OrignalComponent);
   };
 }
