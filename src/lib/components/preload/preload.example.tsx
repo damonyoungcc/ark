@@ -16,6 +16,7 @@ interface ExampleProps {
   testProps: string;
 }
 
+// @ts-ignore
 @preload({
   preloads: {
     getList,
@@ -51,9 +52,37 @@ interface ExampleProps {
 //   LoadingComponent: Spin,
 // })
 class PreloadExample extends Component<ExampleProps, any> {
+  constructor(props: ExampleProps) {
+    super(props);
+    this.state = {
+      num: 1,
+    };
+  }
+
+  fn = () => {
+    const { num } = this.state;
+    this.setState({
+      num: num + 1,
+    });
+  };
+
+  fn1 = (props: any): void => {
+    console.log(props);
+  };
+
+  fn2 = (props: any) => {
+    console.log(props);
+  };
+
   render() {
-    console.log('props', this.props);
-    return <div>hello world</div>;
+    // console.log('props', this.props);
+    return (
+      <div>
+        <div onClick={this.fn}>hello world{this.state.num}</div>
+        <div onClick={this.fn1.bind(this, this.props)}>hahaha</div>
+        <div onClick={() => this.fn2(this.props)}>hahaha</div>
+      </div>
+    );
   }
 }
 
