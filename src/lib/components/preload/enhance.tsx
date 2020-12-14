@@ -2,7 +2,7 @@ import React from 'react';
 import { PreloadParamsType, PreloadsType, PreloadsFnType } from './preload';
 import Spin from '../Spin';
 function isObject(obj: any) {
-  return Object.prototype.toString.call(obj) === '[object, Object]';
+  return typeof obj === "object" && obj !== null;
 }
 function isFunction(fn: any) {
   return fn && typeof fn === 'function';
