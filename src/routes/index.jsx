@@ -9,6 +9,7 @@ import Progress from './Progress';
 import Spin from './Spin';
 import Timeline from './Timeline';
 import Preload from './Preload';
+import Compressor from './Compressor';
 import { autoAddPathToChildren } from './routes_helper';
 
 const routes = autoAddPathToChildren(
@@ -24,6 +25,7 @@ const routes = autoAddPathToChildren(
     Spin,
     Timeline,
     Preload,
+    Compressor,
   ),
 );
 
