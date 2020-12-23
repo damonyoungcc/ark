@@ -1,8 +1,9 @@
 import React from 'react';
 import { PreloadParamsType, PreloadsType, PreloadsFnType } from './preload';
 import Spin from '../Spin';
+
 function isObject(obj: any) {
-  return typeof obj === "object" && obj !== null;
+  return typeof obj === 'object' && obj !== null;
 }
 function isFunction(fn: any) {
   return fn && typeof fn === 'function';
@@ -12,12 +13,13 @@ export interface WrapperedComponentState {
   data: any;
 }
 
+
 const enhance = (params: PreloadParamsType) => {
   let { preloads, minloadTime = 0, LoadingComponent = Spin } = params;
   return function <T>(OrignalComponent: React.ComponentType<T>) {
     let timerId: number;
-    return class WrapperedComponent extends React.Component<
-      T,
+    class WrapperedComponent extends React.Component<
+      any,
       WrapperedComponentState
     > {
       constructor(props: T) {
@@ -103,13 +105,26 @@ const enhance = (params: PreloadParamsType) => {
         window.clearTimeout(timerId);
       }
       render() {
+        const { forwardRef, ...restProps } = this.props;
         return this.state.isReady ? (
-          <OrignalComponent {...this.props} {...this.state.data} />
+          <OrignalComponent
+            {...restProps}
+            {...this.state.data}
+            ref={forwardRef}
+          />
         ) : (
           React.createElement(LoadingComponent, null)
         );
       }
-    };
+    }
+
+    const Component = React.forwardRef((props, ref) => {
+      return <WrapperedComponent {...props} forwardRef={ref} />;
+    });
+
+    // Component.displayName = `preload(${WrapperedComponent.displayName})`;
+
+    return Component as any;
   };
 };
 

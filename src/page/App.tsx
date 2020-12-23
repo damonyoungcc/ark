@@ -41,8 +41,8 @@ const App: React.FC = () => {
                                 <Route
                                   path={item.path}
                                   exact
-                                  component={() => (
-                                    <PreloadExample testProps={'testprops'} />
+                                  component={(props: any) => (
+                                    <PreloadExample testProps={'testprops'} {...props}/>
                                   )}
                                   key={item.path}
                                 />
